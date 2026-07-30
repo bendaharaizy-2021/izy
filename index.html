@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BERANDA</title>
+    <title>BERANDA - IZY</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@400;500;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -20,7 +20,7 @@
         --bg-light: #f8fafc;
         --card-white: #ffffff;
         --text-dark: #1e293b;
-        --shadow: 0 15px 10px -2px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
         --wa-color: #25d366;
     }
 
@@ -47,6 +47,15 @@
         width: 100%;
     }
 
+    /* --- GLOBAL LAYOUT WIDGET --- */
+    .widget-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* --- HEADER --- */
     .header-section {
         background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
         padding: 15px 15px 35px;
@@ -57,92 +66,58 @@
     }
 
     .tanggal-jam-container {
-        display: flex; align-items: center; gap: 15px;
+        display: flex; align-items: center; justify-content: center; gap: 15px;
         max-width: 500px; margin: 0 auto;
     }
 
     .box-jam {
         background: linear-gradient(145deg, #ffffff00, #ffffff00);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-top: 1px solid rgba(255, 255, 255, 0.5);
         border-left: 1px solid rgba(255, 255, 255, 0.5);
         box-shadow: 0 8px 25px #00000026;
-        color: white; 
-        padding: 12px 10px;
-        border-radius: 18px; 
-        flex: 0 0 40%; 
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        color: white; padding: 12px 10px;
+        border-radius: 18px; flex: 0 0 40%;
+        text-align: center; display: flex;
+        flex-direction: column; justify-content: center; align-items: center;
     }
 
     #jam { 
-        font-family: 'Montserrat', sans-serif; 
-        font-size: 20px; 
-        font-weight: 800; 
-        display: block; 
-        letter-spacing: 1px; 
-        text-shadow: 0 2px 10px #0000004d;
-        font-variant-numeric: tabular-nums; 
+        font-family: 'Montserrat', sans-serif; font-size: 20px; 
+        font-weight: 800; display: block; letter-spacing: 1px; 
+        text-shadow: 0 2px 10px #0000004d; font-variant-numeric: tabular-nums; 
         line-height: 1.1;
     }
 
     #tanggal { 
-        font-size: 9px; 
-        color: var(--accent-gold); 
-        font-weight: 700; 
-        margin-top: 6px; 
-        text-transform: uppercase; 
-        letter-spacing: 0.5px; 
-        background: #00000026;
-        padding: 4px 8px;
-        border-radius: 8px;
-        display: inline-block;
-        box-shadow: inset 0 1px 3px #0000001a;
+        font-size: 9px; color: var(--accent-gold); font-weight: 700; 
+        margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; 
+        background: #00000026; padding: 4px 8px; border-radius: 8px;
+        display: inline-block; box-shadow: inset 0 1px 3px #0000001a;
     }
 
     .box-logo-header {
-        flex: 0 0 55%; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end; 
+        flex: 0 0 55%; display: flex; flex-direction: column;
+        justify-content: center; align-items: flex-end; 
     }
 
     .box-logo-header img {
-        height: 45px; 
-        width: auto;
-        max-width: 100%;
-        object-fit: contain;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        height: 45px; width: auto; max-width: 100%;
+        object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
 
     .total-akses-box {
-        font-size: 9px;
-        color: rgba(255, 255, 255, 0.85);
-        font-weight: 600;
-        margin-top: 6px;
-        background: rgba(0, 0, 0, 0.15);
-        padding: 3px 8px;
-        border-radius: 6px;
-        letter-spacing: 0.3px;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 9px; color: rgba(255, 255, 255, 0.85); font-weight: 600;
+        margin-top: 6px; background: rgba(0, 0, 0, 0.15); padding: 3px 8px;
+        border-radius: 6px; letter-spacing: 0.3px; display: inline-flex;
+        align-items: center; gap: 4px; border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .total-akses-box span {
-        color: var(--accent-gold);
-        font-weight: 800;
-        font-size: 9px;
-    }
+    .total-akses-box span { color: var(--accent-gold); font-weight: 800; font-size: 9px; }
 
+    /* --- LINK KATEGORI --- */
     .link-kategori {
-        background: var(--card-white); width: 92%; margin: -20px auto 15px auto;
+        background: var(--card-white); width: 92%; max-width: 500px; margin: -20px auto 15px auto;
         padding: 12px; border-radius: 15px; display: flex;
         justify-content: center; align-items: center; gap: 10px;
         box-shadow: var(--shadow); z-index: 100; position: relative;
@@ -151,9 +126,10 @@
     
     .link-kategori a { 
         text-decoration: none; color: var(--primary-green); font-weight: 800; font-size: 11px; text-transform: uppercase; 
-        transition: transform 0.15s ease; display: inline-block; cursor: pointer;
+        transition: all 0.2s ease; display: inline-block; cursor: pointer;
     }
     .link-kategori a:active { transform: scale(0.85); }
+    .link-kategori a:hover { color: var(--accent-gold); }
     .link-kategori span { color: #e2e8f0; }
 
     .dropdown-audio { position: relative; display: inline-block; }
@@ -174,6 +150,7 @@
     .dropdown-content a:hover { background-color: #f8fafc; color: var(--primary-green) !important; }
     .dropdown-audio:hover .dropdown-content, .dropdown-audio.active .dropdown-content { display: block; animation: windowsEntry 0.2s ease-out; }
 
+    /* --- ULTAH & MENUS --- */
     .ultah-container {
         background: white; margin: 0 auto 15px auto; padding: 12px 15px; border-radius: 18px; box-shadow: var(--shadow); width: 92%; max-width: 500px;
         display: none; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; 
@@ -197,238 +174,125 @@
     .menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; width: 100%; max-width: 500px; }
     .menu a {
         background: var(--card-white); padding: 15px 5px; border-radius: 18px; text-decoration: none; display: flex; flex-direction: column; align-items: center;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.3s ease;
         cursor: pointer;
     }
     .menu a:active { transform: scale(0.92) !important; box-shadow: inset 0 2px 6px rgba(0,0,0,0.08); background-color: #f4f9f7; }
+    .menu a:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(3, 108, 108, 0.15); }
     
     .icon-3d { font-size: 28px; margin-bottom: 8px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1)); color: #14b8a6; }
     .icon-orange { color: #f97316 !important; }
     .menu a span:not(.icon-3d) { font-size: 11px; font-weight: 800; color: #475569; }
 
-    /* --- WIDGET ADZAN COUNTDOWN --- */
-    .adzan-widget-container {
-        background: linear-gradient(135deg, var(--deep-tosca) 0%, var(--primary-green) 60%, var(--dark-green) 100%);
-        margin: 15px auto 10px auto;
-        padding: 18px 20px;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px -5px rgba(3, 108, 108, 0.4);
-        width: 92%;
-        max-width: 500px;
-        color: white;
-        position: relative;
-        overflow: hidden;
-        opacity: 0;
-        animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.21s forwards; 
-        border: 1px solid rgba(251, 191, 36, 0.3);
-    }
-    .adzan-widget-container::before {
-        content: '\f651'; 
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        position: absolute;
-        right: -10px;
-        bottom: -20px;
-        font-size: 110px;
-        color: rgba(255, 255, 255, 0.06);
-        pointer-events: none;
-        transform: rotate(-10deg);
-    }
-    .adzan-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        border-bottom: 1.5px dashed rgba(255,255,255,0.25);
-        padding-bottom: 12px;
-    }
-    .adzan-title {
-        font-size: 12px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--accent-gold);
-    }
-    .adzan-dropdown {
-        background: rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(251, 191, 36, 0.4);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 8px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 10.5px;
-        font-weight: 600;
-        outline: none;
-        cursor: pointer;
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .adzan-dropdown option {
-        background: var(--card-white);
-        color: var(--text-dark);
-    }
-    .adzan-body {
-        text-align: center;
-        z-index: 1;
-        position: relative;
-    }
-    .adzan-prayer-info {
-        font-size: 12.5px;
-        font-weight: 600;
-        color: #e2e8f0;
-        margin-bottom: 6px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    .adzan-prayer-info span {
-        color: var(--accent-gold);
-        font-weight: 800;
-        font-size: 15px;
-        letter-spacing: 1px;
-    }
-    .adzan-countdown {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 34px;
-        font-weight: 800;
-        letter-spacing: 2px;
-        text-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        margin-bottom: 8px;
-        line-height: 1;
-        font-variant-numeric: tabular-nums;
-    }
-    .adzan-actual-time {
-        font-size: 11px;
-        color: rgba(255,255,255,0.85);
-        font-weight: 500;
-        background: rgba(0,0,0,0.15);
-        display: inline-block;
-        padding: 4px 12px;
-        border-radius: 20px;
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-    .adzan-actual-time span {
-        font-weight: 800;
-        color: var(--accent-gold);
+    /* --- WIDGET STYLES (MOBILE DEFAULT) --- */
+    .adzan-widget-container, .info-hijri-card, .imam-container, .jaga-malam-container, 
+    .piket-kantor-container, .calendar-container, .charts-container, .peringatan-container, 
+    .kota-container, .slider-wrapper {
+        width: 92%; max-width: 500px; margin: 10px auto; opacity: 0;
     }
 
-    /* --- HIJRI CARD --- */
+    /* ADZAN WIDGET */
+    .adzan-widget-container {
+        background: linear-gradient(135deg, var(--deep-tosca) 0%, var(--primary-green) 60%, var(--dark-green) 100%);
+        padding: 18px 20px; border-radius: 20px; box-shadow: 0 10px 20px -5px rgba(3, 108, 108, 0.4);
+        color: white; position: relative; overflow: hidden; border: 1px solid rgba(251, 191, 36, 0.3);
+        animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.21s forwards; 
+    }
+    .adzan-widget-container::before {
+        content: '\f651'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute;
+        right: -10px; bottom: -20px; font-size: 110px; color: rgba(255, 255, 255, 0.06); pointer-events: none; transform: rotate(-10deg);
+    }
+    .adzan-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1.5px dashed rgba(255,255,255,0.25); padding-bottom: 12px; }
+    .adzan-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; color: var(--accent-gold); }
+    .adzan-dropdown { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(251, 191, 36, 0.4); color: white; padding: 5px 10px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 600; outline: none; cursor: pointer; }
+    .adzan-dropdown option { background: var(--card-white); color: var(--text-dark); }
+    .adzan-body { text-align: center; z-index: 1; position: relative; }
+    .adzan-prayer-info { font-size: 12.5px; font-weight: 600; color: #e2e8f0; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .adzan-prayer-info span { color: var(--accent-gold); font-weight: 800; font-size: 15px; letter-spacing: 1px; }
+    .adzan-countdown { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 2px; text-shadow: 0 4px 12px rgba(0,0,0,0.3); margin-bottom: 8px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .adzan-actual-time { font-size: 11px; color: rgba(255,255,255,0.85); font-weight: 500; background: rgba(0,0,0,0.15); display: inline-block; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+    .adzan-actual-time span { font-weight: 800; color: var(--accent-gold); }
+
+    /* HIJRI CARD */
     .info-hijri-card {
-        background: var(--card-white); margin: 14px auto; padding: 14px 18px; border-radius: 20px;
-        box-shadow: var(--shadow); width: 92%; max-width: 500px; display: flex; align-items: center; justify-content: space-between;
-        gap: 14px; border: 1px solid #e2e8f0; position: relative; overflow: hidden; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.22s forwards;
+        background: var(--card-white); padding: 14px 18px; border-radius: 20px; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: space-between;
+        gap: 14px; border: 1px solid #e2e8f0; position: relative; overflow: hidden; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.22s forwards;
     }
-    .hijri-icon-circle {
-        width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--deep-tosca), var(--primary-green));
-        display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 22px;
-        box-shadow: 0 4px 12px rgba(3, 108, 108, 0.25); flex-shrink: 0; border: 2px solid #ffffff; outline: 1.5px solid var(--accent-gold);
-    }
+    .hijri-icon-circle { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--deep-tosca), var(--primary-green)); display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 22px; box-shadow: 0 4px 12px rgba(3, 108, 108, 0.25); flex-shrink: 0; border: 2px solid #ffffff; outline: 1.5px solid var(--accent-gold); }
     .hijri-text-col { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .hijri-date-val { font-size: 14px; font-weight: 800; color: var(--text-dark); letter-spacing: 0.5px; text-transform: uppercase; }
     .ramadhan-countdown-val { font-size: 11px; font-weight: 600; color: #64748b; margin-top: 2px; line-height: 1.4; }
     .ramadhan-countdown-val span { color: #d97706; font-weight: 800; }
     .hijri-ornament { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; color: rgba(3, 108, 108, 0.15); font-size: 34px; flex-shrink: 0; }
 
-    /* --- STYLE JADWAL IMAM SHALAT --- */
-    .imam-container {
-        background: white; margin: 15px auto 10px auto; padding: 14px 16px; border-radius: 18px; box-shadow: var(--shadow);
-        width: 92%; max-width: 500px; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.23s forwards;
-        border-top: 4px solid var(--accent-gold);
-    }
-    .imam-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1.5px dashed #e2e8f0; }
-    .imam-header-left { display: flex; align-items: center; gap: 8px; color: var(--accent-gold); }
+    /* OTHER WIDGETS CONTAINERS */
+    .imam-container, .piket-kantor-container, .peringatan-container, .calendar-container { background: white; padding: 14px 16px; border-radius: 18px; box-shadow: var(--shadow); animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .imam-container { border-top: 4px solid var(--accent-gold); animation-delay: 0.23s; }
+    .piket-kantor-container { border-top: 4px solid var(--primary-green); animation-delay: 0.25s; border-left: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;}
+    .peringatan-container { border: 1.5px dashed #f59e0b; animation-delay: 0.4s; }
+    .calendar-container { padding: 20px; animation-delay: 0.35s; }
+    
+    /* TABLES & HEADERS (Reusable) */
+    .imam-header, .piket-header, .peringatan-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1.5px dashed #e2e8f0; }
+    .peringatan-header { border-bottom: none; justify-content: flex-start; gap: 8px; margin-bottom: 10px; color: #f59e0b;}
+    .imam-header-left, .piket-header-left { display: flex; align-items: center; gap: 8px; }
+    .imam-header-left h3, .piket-header-left h3, .peringatan-header h3 { margin: 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); }
+    .peringatan-header h3 { color: #f59e0b; }
     .imam-header-left i { font-size: 16px; color: var(--accent-gold); }
-    .imam-header-left h3 { margin: 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); }
-    .imam-badge-hari { background: #fffbeb; color: #d97706; padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.3px; }
-    .imam-table-wrapper { width: 100%; overflow-x: auto; border-radius: 8px; border: 1px solid #f1f5f9; }
-    .imam-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .piket-header-left i { font-size: 16px; color: var(--primary-green); }
+    .peringatan-header i { font-size: 14px; animation: ring 1.5s infinite; }
+    
+    .imam-badge-hari { background: #fffbeb; color: #d97706; padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 9.5px; text-transform: uppercase; }
+    .piket-badge-hari { background: #e6f4f4; color: var(--primary-green); padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 9.5px; text-transform: uppercase; }
+    
+    .imam-table-wrapper, .piket-table-wrapper { width: 100%; overflow-x: auto; border-radius: 8px; border: 1px solid #f1f5f9; }
+    .imam-table, .piket-table { width: 100%; border-collapse: collapse; text-align: left; }
     .imam-table th { background: linear-gradient(135deg, var(--accent-gold), #d97706); color: white; font-weight: 800; padding: 8px 10px; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
-    .imam-table td { padding: 9px 10px; border-bottom: 1px solid #f1f5f9; color: #334155; font-weight: 600; font-size: 10px; vertical-align: middle; }
-    .imam-table tr:last-child td { border-bottom: none; }
+    .piket-table th { background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: white; font-weight: 800; padding: 8px 10px; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+    .imam-table td, .piket-table td { padding: 9px 10px; border-bottom: 1px solid #f1f5f9; color: #334155; font-weight: 600; font-size: 10px; vertical-align: middle; }
+    .imam-table tr:last-child td, .piket-table tr:last-child td { border-bottom: none; }
     .imam-table tr.active-prayer { background-color: #ecfdf5; border-left: 3px solid var(--primary-green); }
     .imam-table tr.active-prayer td { color: var(--primary-green); font-weight: 800; }
+    .piket-table tr:nth-child(even) { background-color: #f8fafc; }
+    .text-center { text-align: center; }
 
+    /* JAGA MALAM */
     .jaga-malam-container {
         background: linear-gradient(135deg, var(--deep-tosca) 0%, var(--primary-green) 60%, #022a2a 100%);
-        border: 1px solid rgba(251, 191, 36, 0.45);
-        margin: 18px auto 12px auto;
-        padding: 14px 18px;
-        border-radius: 22px;
-        width: 92%;
-        max-width: 500px;
-        display: none; 
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        opacity: 0;
+        border: 1px solid rgba(251, 191, 36, 0.45); padding: 14px 18px; border-radius: 22px;
+        display: none; align-items: center; justify-content: space-between; gap: 14px;
+        position: relative; overflow: hidden; box-shadow: 0 10px 20px -5px rgba(3, 108, 108, 0.35);
         animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 10px 20px -5px rgba(3, 108, 108, 0.35);
     }
-    .jaga-malam-container::before {
-        content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px;
-        background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none;
-    }
-    .jaga-malam-container::after {
-        content: '\f66f'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute;
-        right: 40px; bottom: -12px; font-size: 65px; color: rgba(251, 191, 36, 0.08); pointer-events: none;
-    }
-    .jaga-icon-wrapper {
-        background: rgba(0, 0, 0, 0.3); border: 1.5px solid var(--accent-gold); width: 46px; height: 46px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 20px; flex-shrink: 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 1;
-    }
+    .jaga-malam-container::before { content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none; }
+    .jaga-malam-container::after { content: '\f66f'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: 40px; bottom: -12px; font-size: 65px; color: rgba(251, 191, 36, 0.08); pointer-events: none; }
+    .jaga-icon-wrapper { background: rgba(0, 0, 0, 0.3); border: 1.5px solid var(--accent-gold); width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-size: 20px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 1; }
     .jaga-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-width: 0; z-index: 1; }
     .jaga-label { font-size: 11px !important; width: 100%; color: #e2e8f0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
     .jaga-nama { font-size: 15px; color: var(--accent-gold); font-weight: 800; letter-spacing: 0.5px; margin-top: 2px; font-family: 'Poppins', sans-serif; text-shadow: 0 1px 3px rgba(0,0,0,0.4); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .jaga-arrow { color: #ffffff; font-size: 16px; opacity: 0.85; flex-shrink: 0; z-index: 1; }
 
-    .piket-kantor-container {
-        background: white; margin: 15px auto 10px auto; padding: 14px 16px; border-radius: 18px; box-shadow: var(--shadow);
-        width: 92%; max-width: 500px; display: none; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-        border-top: 4px solid var(--primary-green); border-left: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;
-    }
-    .piket-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1.5px dashed #e2e8f0; }
-    .piket-header-left { display: flex; align-items: center; gap: 8px; color: var(--primary-green); }
-    .piket-header-left i { font-size: 16px; }
-    .piket-header-left h3 { margin: 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); }
-    .piket-badge-hari { background: #e6f4f4; color: var(--primary-green); padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.3px; }
-    .piket-table-wrapper { width: 100%; overflow-x: auto; border-radius: 8px; border: 1px solid #f1f5f9; }
-    .piket-table { width: 100%; border-collapse: collapse; text-align: left; }
-    .piket-table th { background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: white; font-weight: 800; padding: 8px 10px; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
-    .piket-table td { padding: 9px 10px; border-bottom: 1px solid #f1f5f9; color: #334155; font-weight: 600; font-size: 10.5px; vertical-align: middle; }
-    .piket-table tr:nth-child(even) { background-color: #f8fafc; }
-    .piket-table tr:last-child td { border-bottom: none; }
-    .piket-table .text-center { text-align: center; }
-
-    .calendar-container { 
-        background: white; margin: 10px auto; padding: 20px; border-radius: 15px; box-shadow: var(--shadow); max-width: 355px; 
-        opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
-    }
+    /* CALENDAR */
     .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 0 5px; }
     .calendar-header h3 { margin: 0; font-size: 14px; color: var(--dark-green); font-weight: 800; text-transform: uppercase; }
     .calendar-btn { background: #f1f5f9; border: none; width: 28px; height: 28px; border-radius: 8px; color: var(--primary-green); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: transform 0.15s; }
     .calendar-btn:active { transform: scale(0.85); }
-    
     .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; }
     .day-name { font-size: 9px; font-weight: 800; color: #94a3b8; padding-bottom: 4px; text-transform: uppercase; }
     .calendar-day { font-size: 11px; font-weight: 600; padding: 10px 0 6px 0; color: #475569; border-radius: 8px; position: relative; transition: transform 0.15s, background-color 0.2s; cursor: default; }
-    
     .calendar-day.today { background: var(--primary-green) !important; color: white !important; font-weight: 800; box-shadow: 0 3px 8px rgba(5, 150, 105, 0.3); z-index: 1; }
     .calendar-day.today::before { content: 'skrg'; position: absolute; top: 1px; left: 50%; transform: translateX(-50%); font-size: 6px; font-weight: 800; text-transform: uppercase; color: var(--accent-gold); white-space: nowrap; letter-spacing: 0.2px; }
     .calendar-day.has-event { color: white; font-weight: 800; cursor: pointer; }
     .calendar-day.has-event:active { transform: scale(0.85); }
     .calendar-day.other-month { color: #cbd5e1; opacity: 0.4; }
 
-    .charts-container { background: transparent; margin: 5px auto 5px auto; padding: 5px 15px 0px 15px; width: 100%; max-width: 500px; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.38s forwards; }
+    /* CHARTS */
+    .charts-container { background: transparent; padding: 5px 15px 0px 15px; animation-delay: 0.38s; }
     .donut-wrapper { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
     .donut-box { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0; }
     .donut-box h4 { margin: 0 0 5px 0; font-size: 12px; font-weight: 800; color: #475569; text-transform: uppercase; text-align: center; }
     .donut-box canvas { width: 100% !important; max-width: 200px; height: auto !important; }
     .bar-wrapper { padding: 0; margin-top: 5px; }
-
     .stats-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 5px 0 0 0; padding-top: 15px; border-top: 1px dashed #cbd5e1; }
     .stat-card { background: white; padding: 15px 5px; border-radius: 16px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .stat-card i { font-size: 18px; margin-bottom: 6px; }
@@ -436,27 +300,28 @@
     .stat-value { font-size: 28px; font-weight: 800; font-family: 'Montserrat', sans-serif; line-height: 1; }
     .card-putra { color: #f97316; } .card-putri { color: #036c6c; } .card-total { color: #ec4899; }
 
-    .peringatan-container { background: white; margin: 10px auto 10px auto; padding: 12px 15px; border-radius: 18px; box-shadow: var(--shadow); width: 92%; max-width: 355px; display: none; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; border: 1.5px dashed #f59e0b; }
-    .peringatan-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: #f59e0b; }
-    .peringatan-header h3 { margin: 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
-    .peringatan-header i { font-size: 14px; animation: ring 1.5s infinite; }
+    /* PERINGATAN */
     .peringatan-list { display: flex; flex-direction: column; gap: 8px; }
     .peringatan-item { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 8px 10px; border-radius: 6px; font-size: 10.5px; font-weight: 600; color: #475569; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px;}
     .peringatan-item span { font-size: 13px !important; }
     @keyframes ring { 0% { transform: rotate(0); } 10% { transform: rotate(15deg); } 20% { transform: rotate(-10deg); } 30% { transform: rotate(5deg); } 40% { transform: rotate(-5deg); } 50%, 100% { transform: rotate(0); } }
 
-    .kota-container { display: flex; gap: 10px; padding: 10px 10px; justify-content: center; width: 100%; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards; }
+    /* KOTA */
+    .kota-container { display: flex; gap: 10px; padding: 10px; justify-content: center; animation-delay: 0.45s; }
     .kota-container a { flex: 1; max-width: 110px; transition: transform 0.15s ease; }
     .kota-container a:active { transform: scale(0.92); }
+    .kota-container a:hover { transform: scale(1.05); }
     .kota-container img { width: 100%; border-radius: 12px; display: block; box-shadow: var(--shadow); }
 
-    .slider-wrapper { padding: 5px 15px; opacity: 0; animation: windowsEntry 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+    /* SLIDER */
+    .slider-wrapper { padding: 5px 15px; animation-delay: 0.5s; }
     .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; border-radius: 15px; scrollbar-width: none; scroll-behavior: smooth; }
     .slider::-webkit-scrollbar { display: none; }
     .image-slide { flex: 0 0 100%; scroll-snap-align: center; position: relative; border-radius: 15px; overflow: hidden; }
     .image-slide img { width: 100%; height: 200px; object-fit: cover; display: block; }
     .caption { position: absolute; bottom: 0; background: rgba(0,0,0,0.6); color: white; width: 100%; padding: 8px; font-size: 11px; text-align: center; font-weight: 600; }
 
+    /* --- FOOTER NAV --- */
     .footer-nav { 
         position: fixed; bottom: 0; left: 0; width: 100%; background: linear-gradient(135deg, var(--deep-tosca), var(--primary-green)); 
         display: flex; justify-content: space-around; align-items: center; padding: 10px 0 14px; box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.25); 
@@ -464,6 +329,7 @@
     }
     .footer-nav a { text-decoration: none; color: rgba(255, 255, 255, 0.7); display: flex; flex-direction: column; align-items: center; width: 20%; transition: transform 0.15s ease, color 0.2s; }
     .footer-nav a:active { transform: scale(0.85); }
+    .footer-nav a:hover { color: #fff; }
     .footer-nav a i { font-size: 18px; margin-bottom: 4px; }
     .footer-nav a span { font-size: 10px; font-weight: 700; letter-spacing: 0.3px; }
     .footer-nav a.active { color: var(--accent-gold); text-shadow: 0 0 10px rgba(251, 191, 36, 0.4); }
@@ -475,21 +341,19 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35), 0 0 12px rgba(251, 191, 36, 0.25); transition: transform 0.2s ease; padding: 6px;
     }
     .center-logo-circle:active { transform: scale(0.9); }
+    .center-logo-circle:hover { transform: translateY(-5px); }
     .center-logo-circle img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3)); }
 
-    /* --- STYLE WA MENU --- */
+    /* --- WA MODAL & OTHERS --- */
     .wa-contact-list {
         position: fixed; bottom: 85px; left: 50%; width: 90%; max-width: 350px; background: white; border-radius: 20px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 99999; overflow: hidden; border: 1px solid #f1f5f9;
-        transform: translate(-50%, 120%) scale(0.9);
-        opacity: 0; visibility: hidden;
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transform: translate(-50%, 120%) scale(0.9); opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
     .wa-contact-list.active { transform: translate(-50%, 0) scale(1); opacity: 1; visibility: visible; }
     .wa-list-header { background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: white; padding: 15px; text-align: center; font-weight: 800; font-size: 14px; letter-spacing: 0.5px; border-bottom: 3px solid var(--accent-gold); }
     .wa-item { display: flex; align-items: center; padding: 12px 15px; text-decoration: none; color: var(--text-dark); border-bottom: 1px solid #f1f5f9; transition: 0.2s, background-color 0.2s; gap: 12px; }
     .wa-item:active { transform: scale(0.96); background: #f8fafc; }
-    .wa-item:last-child { border-bottom: none; }
     .wa-item:hover { background: #f8fafc; }
     .wa-item-photo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 6px rgba(0,0,0,0.15); flex-shrink: 0; }
     .wa-item-info { display: flex; flex-direction: column; flex: 1; }
@@ -513,6 +377,100 @@
     .pass-error-msg { color: #ef4444; font-size: 11px; font-weight: 600; margin-top: -6px; margin-bottom: 10px; display: none; background: #fee2e2; padding: 5px 8px; border-radius: 8px; border: 1px solid #fca5a5; text-align: center; }
     .pass-btn-submit-light { width: 100%; padding: 11px; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: 0.2s; border: none; background: linear-gradient(135deg, var(--dark-green), var(--primary-green)); color: white; box-shadow: 0 4px 10px rgba(3, 108, 108, 0.25); display: flex; align-items: center; justify-content: center; gap: 6px; }
     .pass-btn-submit-light:active { transform: scale(0.96); opacity: 0.9; }
+
+    /* ========================================================== */
+    /* DESKTOP / WEB RESPONSIVE LAYOUT OVERRIDES */
+    /* ========================================================== */
+    @media (min-width: 768px) {
+        body { padding-bottom: 120px; }
+        
+        .header-section { padding: 30px 40px 60px; border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; }
+        .tanggal-jam-container { max-width: 1100px; justify-content: space-between; }
+        .box-jam { flex: 0 0 320px; padding: 20px; border-radius: 25px; border-width: 1.5px; }
+        #jam { font-size: 38px; text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        #tanggal { font-size: 14px; margin-top: 10px; padding: 6px 16px; border-radius: 12px; }
+        
+        .box-logo-header { flex: 0 0 400px; align-items: flex-end; }
+        .box-logo-header img { height: 75px; }
+        .total-akses-box { font-size: 12px; padding: 8px 16px; margin-top: 15px; border-radius: 8px; }
+        .total-akses-box span { font-size: 13px; }
+        
+        .link-kategori { max-width: 900px; margin: -35px auto 35px auto; padding: 22px 40px; border-radius: 30px; gap: 30px; }
+        .link-kategori a { font-size: 15px; letter-spacing: 0.5px; }
+        .link-kategori span { padding: 0 10px; font-size: 16px; }
+        .dropdown-content a { font-size: 14px !important; padding: 15px 25px; }
+        
+        .ultah-container { max-width: 900px; padding: 25px 35px; border-width: 2px; margin-bottom: 35px; }
+        .ultah-header h3 { font-size: 16px; letter-spacing: 1px; }
+        .ultah-table th { font-size: 12px; padding: 12px; }
+        .ultah-table td { font-size: 14px; padding: 12px; }
+        .ultah-badge-umur { font-size: 12px; padding: 5px 12px; }
+        
+        .menu-wrapper { max-width: 1000px; padding: 0 20px; margin-bottom: 40px; }
+        .menu { max-width: 900px; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .menu a { padding: 30px 15px; border-radius: 25px; border: 1.5px solid #e2e8f0; }
+        .icon-3d { font-size: 45px; margin-bottom: 15px; }
+        .menu a span:not(.icon-3d) { font-size: 14px; }
+        
+        /* Merubah list widget vertikal menjadi Masonry/Grid 2 kolom di Web */
+        .widget-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto 50px auto;
+            align-items: start;
+            padding: 0 20px;
+        }
+        
+        /* Reset ukuran max-width untuk elemen di dalam Grid */
+        .widget-grid > div {
+            max-width: 100% !important;
+            width: 100%;
+            margin: 0 !important;
+        }
+        
+        /* Widget Scaling */
+        .adzan-countdown { font-size: 46px; margin: 15px 0; }
+        .adzan-header { padding-bottom: 18px; margin-bottom: 20px; }
+        .adzan-title { font-size: 15px; }
+        .adzan-actual-time { font-size: 13px; padding: 6px 16px; }
+        
+        .info-hijri-card { padding: 25px 30px; }
+        .hijri-icon-circle { width: 70px; height: 70px; font-size: 32px; border-width: 3px; }
+        .hijri-date-val { font-size: 20px; }
+        .ramadhan-countdown-val { font-size: 14px; margin-top: 6px; }
+        .hijri-ornament { font-size: 60px; }
+        
+        .imam-header h3, .piket-header-left h3, .peringatan-header h3, .calendar-header h3 { font-size: 16px; }
+        .imam-table th, .piket-table th { font-size: 12px; padding: 12px; }
+        .imam-table td, .piket-table td { font-size: 13px; padding: 14px; }
+        .calendar-container { padding: 30px; }
+        .calendar-day { font-size: 15px; padding: 16px 0 12px 0; }
+        .day-name { font-size: 12px; }
+        
+        .charts-container { background: white; border-radius: 20px; padding: 25px; box-shadow: var(--shadow); border: 1px solid #f1f5f9; }
+        .kota-container { background: white; border-radius: 20px; box-shadow: var(--shadow); padding: 25px; gap: 20px; }
+        .kota-container a { max-width: 30%; }
+        
+        .slider-wrapper { padding: 0; }
+        .image-slide img { height: 280px; }
+        .caption { font-size: 14px; padding: 12px; }
+        
+        /* Footer Desktop Adjustments */
+        .footer-nav { padding: 15px 20%; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .footer-nav a i { font-size: 24px; margin-bottom: 6px; }
+        .footer-nav a span { font-size: 12px; }
+        .center-logo-circle { width: 85px; height: 85px; top: -40px; border-width: 4px; }
+        .wa-contact-list { max-width: 450px; bottom: 100px; border-radius: 25px; }
+        
+        .modal-content { max-width: 450px; padding: 35px; }
+        .modal-title { font-size: 22px; margin-bottom: 15px; }
+        .modal-text { font-size: 16px; }
+        .pass-light-title { font-size: 18px; margin-bottom: 20px; }
+        .pass-input-group input { padding: 14px 45px 14px 20px; font-size: 15px; }
+        .pass-btn-submit-light { padding: 14px; font-size: 15px; }
+    }
 </style>
 </head>
 <body>
@@ -568,290 +526,298 @@
 </div>
 
 <div class="menu-wrapper">
-<div class="menu">
-    <a href="https://jgjk.mobi/m/16131035925694dfd4c34e949.01256181">
-        <i class="fas fa-school icon-3d icon-orange"></i>
-        <span>Sekolah</span>
-    </a>
-    <a href="https://jgjk.mobi/m/06590935925694df9fa015aa6.27867662">
-        <i class="fas fa-book-open-reader icon-3d icon-orange"></i>
-        <span>Tahfizh</span>
-    </a>
-    <a href="https://jgjk.mobi/m/5644061812568632178bf90a3.18601181">
-        <i class="fas fa-user-tie icon-3d icon-orange"></i>
-        <span>Pengasuh</span>
-    </a>
-    <a href="https://jgjk.mobi/m/685fa39fe9b81">
-        <i class="fas fa-file-signature icon-3d"></i>
-        <span>Daftar</span>
-    </a>
-    <a href="https://jgjk.mobi/m/21130935925694def41b06328.46740761">
-        <i class="fas fa-magnifying-glass-chart icon-3d"></i>
-        <span>Eksplorasi</span>
-    </a>
-    <a href="https://jgjk.mobi/m/39572135225694567e34ce485.92382362">
-        <i class="fas fa-gamepad icon-3d"></i>
-        <span>Game</span>
-    </a>
-    <a href="#" onclick="aksesBendahara(event)">
-        <i class="fas fa-hand-holding-dollar icon-3d"></i>
-        <span>Bendahara</span>
-    </a>
-    <a href="https://jgjk.mobi/m/043914129266a003618ede685.95057472">
-        <i class="fas fa-users-viewfinder icon-3d"></i>
-        <span>Akun</span>
-    </a>
-</div>
+    <div class="menu">
+        <a href="https://jgjk.mobi/m/16131035925694dfd4c34e949.01256181">
+            <i class="fas fa-school icon-3d icon-orange"></i>
+            <span>Sekolah</span>
+        </a>
+        <a href="https://jgjk.mobi/m/06590935925694df9fa015aa6.27867662">
+            <i class="fas fa-book-open-reader icon-3d icon-orange"></i>
+            <span>Tahfizh</span>
+        </a>
+        <a href="https://jgjk.mobi/m/5644061812568632178bf90a3.18601181">
+            <i class="fas fa-user-tie icon-3d icon-orange"></i>
+            <span>Pengasuh</span>
+        </a>
+        <a href="https://jgjk.mobi/m/685fa39fe9b81">
+            <i class="fas fa-file-signature icon-3d"></i>
+            <span>Daftar</span>
+        </a>
+        <a href="https://jgjk.mobi/m/21130935925694def41b06328.46740761">
+            <i class="fas fa-magnifying-glass-chart icon-3d"></i>
+            <span>Eksplorasi</span>
+        </a>
+        <a href="https://jgjk.mobi/m/39572135225694567e34ce485.92382362">
+            <i class="fas fa-gamepad icon-3d"></i>
+            <span>Game</span>
+        </a>
+        <a href="#" onclick="aksesBendahara(event)">
+            <i class="fas fa-hand-holding-dollar icon-3d"></i>
+            <span>Bendahara</span>
+        </a>
+        <a href="https://jgjk.mobi/m/043914129266a003618ede685.95057472">
+            <i class="fas fa-users-viewfinder icon-3d"></i>
+            <span>Akun</span>
+        </a>
+    </div>
 </div>
 
 <!-- ============================================== -->
-<!-- WIDGET ADZAN ONLINE COUNTDOWN -->
+<!-- AREA WIDGET GRID (KHUSUS DESKTOP LAYOUT)       -->
 <!-- ============================================== -->
-<div class="adzan-widget-container" id="adzanWidget">
-    <div class="adzan-header">
-        <div class="adzan-title"><i class="fas fa-clock"></i> Sisa Waktu</div>
-        <select id="adzanWilayah" class="adzan-dropdown">
-            <optgroup label="Kota">
-                <option value="Medan">Medan</option>
-                <option value="Binjai">Binjai</option>
-                <option value="Pematangsiantar">Pematangsiantar</option>
-                <option value="Tanjungbalai">Tanjungbalai</option>
-                <option value="Sibolga">Sibolga</option>
-                <option value="Padangsidimpuan">Padangsidimpuan</option>
-                <option value="Gunungsitoli">Gunungsitoli</option>
-                <option value="Tebing Tinggi">Tebing Tinggi</option>
-            </optgroup>
-            <optgroup label="Kabupaten">
-                <option value="Asahan">Asahan</option>
-                <option value="Batubara">Batubara</option>
-                <option value="Dairi">Dairi</option>
-                <option value="Deli Serdang">Deli Serdang</option>
-                <option value="Humbang Hasundutan">Humbang Hasundutan</option>
-                <option value="Karo">Karo</option>
-                <option value="Labuhanbatu">Labuhanbatu</option>
-                <option value="Labuhanbatu Selatan">Labuhanbatu Selatan</option>
-                <option value="Labuhanbatu Utara">Labuhanbatu Utara</option>
-                <option value="Langkat" selected>Langkat</option>
-                <option value="Mandailing Natal">Mandailing Natal</option>
-                <option value="Nias">Nias</option>
-                <option value="Nias Barat">Nias Barat</option>
-                <option value="Nias Selatan">Nias Selatan</option>
-                <option value="Nias Utara">Nias Utara</option>
-                <option value="Padang Lawas">Padang Lawas</option>
-                <option value="Padang Lawas Utara">Padang Lawas Utara</option>
-                <option value="Pakpak Bharat">Pakpak Bharat</option>
-                <option value="Samosir">Samosir</option>
-                <option value="Serdang Bedagai">Serdang Bedagai</option>
-                <option value="Simalungun">Simalungun</option>
-                <option value="Tapanuli Selatan">Tapanuli Selatan</option>
-                <option value="Tapanuli Tengah">Tapanuli Tengah</option>
-                <option value="Tapanuli Utara">Tapanuli Utara</option>
-                <option value="Toba">Toba</option>
-            </optgroup>
-        </select>
+<div class="widget-grid">
+
+    <!-- WIDGET ADZAN ONLINE COUNTDOWN -->
+    <div class="adzan-widget-container" id="adzanWidget">
+        <div class="adzan-header">
+            <div class="adzan-title"><i class="fas fa-clock"></i> Sisa Waktu</div>
+            <select id="adzanWilayah" class="adzan-dropdown">
+                <optgroup label="Kota">
+                    <option value="Medan">Medan</option>
+                    <option value="Binjai">Binjai</option>
+                    <option value="Pematangsiantar">Pematangsiantar</option>
+                    <option value="Tanjungbalai">Tanjungbalai</option>
+                    <option value="Sibolga">Sibolga</option>
+                    <option value="Padangsidimpuan">Padangsidimpuan</option>
+                    <option value="Gunungsitoli">Gunungsitoli</option>
+                    <option value="Tebing Tinggi">Tebing Tinggi</option>
+                </optgroup>
+                <optgroup label="Kabupaten">
+                    <option value="Asahan">Asahan</option>
+                    <option value="Batubara">Batubara</option>
+                    <option value="Dairi">Dairi</option>
+                    <option value="Deli Serdang">Deli Serdang</option>
+                    <option value="Humbang Hasundutan">Humbang Hasundutan</option>
+                    <option value="Karo">Karo</option>
+                    <option value="Labuhanbatu">Labuhanbatu</option>
+                    <option value="Labuhanbatu Selatan">Labuhanbatu Selatan</option>
+                    <option value="Labuhanbatu Utara">Labuhanbatu Utara</option>
+                    <option value="Langkat" selected>Langkat</option>
+                    <option value="Mandailing Natal">Mandailing Natal</option>
+                    <option value="Nias">Nias</option>
+                    <option value="Nias Barat">Nias Barat</option>
+                    <option value="Nias Selatan">Nias Selatan</option>
+                    <option value="Nias Utara">Nias Utara</option>
+                    <option value="Padang Lawas">Padang Lawas</option>
+                    <option value="Padang Lawas Utara">Padang Lawas Utara</option>
+                    <option value="Pakpak Bharat">Pakpak Bharat</option>
+                    <option value="Samosir">Samosir</option>
+                    <option value="Serdang Bedagai">Serdang Bedagai</option>
+                    <option value="Simalungun">Simalungun</option>
+                    <option value="Tapanuli Selatan">Tapanuli Selatan</option>
+                    <option value="Tapanuli Tengah">Tapanuli Tengah</option>
+                    <option value="Tapanuli Utara">Tapanuli Utara</option>
+                    <option value="Toba">Toba</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="adzan-body">
+            <div class="adzan-prayer-info">Persiapan <span id="nextPrayerName">...</span></div>
+            <div class="adzan-countdown" id="adzanCountdown">-- : -- : --</div>
+            <div class="adzan-actual-time" id="adzanActualTime">Memuat jadwal...</div>
+        </div>
     </div>
-    <div class="adzan-body">
-        <div class="adzan-prayer-info">Persiapan <span id="nextPrayerName">...</span></div>
-        <div class="adzan-countdown" id="adzanCountdown">-- : -- : --</div>
-        <div class="adzan-actual-time" id="adzanActualTime">Memuat jadwal...</div>
+
+    <div class="info-hijri-card">
+        <div class="hijri-icon-circle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="hijri-text-col">
+            <div class="hijri-date-val" id="hijriText">Memuat Tanggal...</div>
+            <div class="ramadhan-countdown-val" id="countdownRamadhan">Memuat Event...</div>
+        </div>
+        <div class="hijri-ornament">
+            <i class="fas fa-kaaba"></i>
+        </div>
     </div>
+
+    <div class="imam-container" id="imamBox" style="display: none;">
+        <div class="imam-header">
+            <div class="imam-header-left">
+                <i class="fas fa-mosque"></i>
+                <h3>Jadwal Imam Shalat Fardhu</h3>
+            </div>
+            <span class="imam-badge-hari" id="imamBadgeHari">Hari Ini</span>
+        </div>
+        <div class="imam-table-wrapper">
+            <table class="imam-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Waktu</th>
+                        <th style="width: 65%;">Nama Imam Shalat</th>
+                    </tr>
+                </thead>
+                <tbody id="imamTableBody">
+                    <tr><td colspan="2" class="text-center">Memuat jadwal...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="piket-kantor-container" id="piketKantorBox">
+        <div class="piket-header">
+            <div class="piket-header-left">
+                <i class="fas fa-user-clock"></i>
+                <h3>Petugas Piket Kantor</h3>
+            </div>
+            <span class="piket-badge-hari" id="piketBadgeHari">Hari Ini</span>
+        </div>
+        <div class="piket-table-wrapper">
+            <table class="piket-table">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 15%;">No</th>
+                        <th style="width: 85%;">Nama Petugas Piket</th>
+                    </tr>
+                </thead>
+                <tbody id="piketTableBody">
+                    <tr><td colspan="2" class="text-center">Memuat data piket...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="piket-kantor-container" id="piketAhadBox" style="display: none; border-top: 4px solid var(--accent-gold);">
+        <div class="piket-header">
+            <div class="piket-header-left" style="color: var(--accent-gold);">
+                <i class="fas fa-calendar-check"></i>
+                <h3 style="color: var(--text-dark);">Jadwal Piket Ahad</h3>
+            </div>
+            <span class="piket-badge-hari" id="piketAhadBadge" style="background: #fffbeb; color: #d97706;">Ahad Ke-X</span>
+        </div>
+        <div class="piket-table-wrapper">
+            <table class="piket-table">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 15%; background: linear-gradient(135deg, var(--accent-gold), #d97706);">No</th>
+                        <th style="width: 85%; background: linear-gradient(135deg, var(--accent-gold), #d97706);">Nama Petugas Piket</th>
+                    </tr>
+                </thead>
+                <tbody id="piketAhadTableBody">
+                    <tr><td colspan="2" class="text-center">Memuat data piket...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="jaga-malam-container" id="jagaMalamBox">
+        <div class="jaga-icon-wrapper">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="jaga-content">
+            <span class="jaga-label" id="jagaMalamNama">Memuat...</span>
+            <span class="jaga-nama" id="jagaMalamLabel">YANG JAGA MALAM INI</span>
+        </div>
+        <div class="jaga-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <div class="ultah-container" id="ultahUstadzBox">
+        <div class="ultah-header">
+            <i class="fas fa-birthday-cake"></i>
+            <h3>Ustadz/ah Yang Berulang Tahun Hari Ini</h3>
+        </div>
+        <div class="ultah-table-wrapper">
+            <table class="ultah-table">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 10%">No</th>
+                        <th style="width: 45%">Nama Ustadz</th>
+                        <th style="width: 30%">Tgl Lahir</th>
+                        <th class="text-center" style="width: 15%">Umur</th>
+                    </tr>
+                </thead>
+                <tbody id="ultahUstadzTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button class="calendar-btn" onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+            <h3 id="calendarMonth">Januari 2024</h3>
+            <button class="calendar-btn" onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+
+    <div class="charts-container">
+        <div class="donut-wrapper">
+            <div class="donut-box">
+                <h4>Santri Putri</h4>
+                <canvas id="chartPutri"></canvas>
+            </div>
+            <div class="donut-box">
+                <h4>Santri Putra</h4>
+                <canvas id="chartPutra"></canvas>
+            </div>
+        </div>
+
+        <div class="bar-wrapper">
+            <canvas id="chartKelas"></canvas>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card card-putra">
+                <i class="fas fa-male"></i>
+                <div class="stat-label">Putra</div>
+                <div class="stat-value" id="valPutra">0</div>
+            </div>
+            <div class="stat-card card-putri">
+                <i class="fas fa-female"></i>
+                <div class="stat-label">Putri</div>
+                <div class="stat-value" id="valPutri">0</div>
+            </div>
+            <div class="stat-card card-total">
+                <i class="fas fa-users"></i>
+                <div class="stat-label">Total</div>
+                <div class="stat-value" id="valTotal">0</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="peringatan-container" id="peringatanBox">
+        <div class="peringatan-header">
+            <i class="fas fa-bell"></i>
+            <h3>Kembali Kami Mengingatkan</h3>
+        </div>
+        <div class="peringatan-list" id="peringatanList">
+        </div>
+    </div>
+
+    <div class="kota-container">
+        <a href="https://jgjk.mobi/m/2432172722568dbb1b8ea4120.25492888"><img src="https://i.ibb.co.com/Zs6yvcx/icon-3-container-1.png" alt="Donasi"></a>
+        <a href="https://6a15c5464af25337089502f7--inquisitive-shortbread-d25842.netlify.app/"><img src="https://i.ibb.co.com/jvkP6y0Z/icon-3-container-2.png" alt="Qurban"></a>
+        <a href="https://jgjk.mobi/m/5557102562568c63d43e606a9.26876067"><img src="https://i.ibb.co.com/N6FksY8Q/icon-3-container-3.png" alt="Foto"></a>
+    </div>
+
+    <div class="slider-wrapper">
+        <div class="slider" id="autoSlider">
+            <div class="image-slide">
+                <img src="https://i.ibb.co.com/xWrW9rv/IMG-20260519-WA0004.jpg">
+                <div class="caption">Penilaian Akhir Semester</div>
+            </div>
+            <div class="image-slide">
+                <img src="https://i.ibb.co.com/5Xw77S1q/IMG-202514-WA0037.jpg">
+                <div class="caption">Kegiatan Bagian Bahasa Putra</div>
+            </div>
+            <div class="image-slide">
+                <img src="https://i.ibb.co.com/5W48SN0V/IMG-20251101-WA0067.jpg">
+                <div class="caption">Apel Pagi Santri Putri IZY</div>
+            </div>
+            <div class="image-slide">
+                <img src="https://i.ibb.co.com/0Rd0TBKY/20241217-094253.jpg">
+                <div class="caption">Kegiatan Belajar Santri Pesantren Ibnul JauZY</div>
+            </div>
+        </div>
+    </div>
+    
 </div>
 <!-- ============================================== -->
-
-<div class="info-hijri-card">
-    <div class="hijri-icon-circle">
-        <i class="fas fa-moon"></i>
-    </div>
-    <div class="hijri-text-col">
-        <div class="hijri-date-val" id="hijriText">Memuat Tanggal...</div>
-        <div class="ramadhan-countdown-val" id="countdownRamadhan">Memuat Event...</div>
-    </div>
-    <div class="hijri-ornament">
-        <i class="fas fa-kaaba"></i>
-    </div>
-</div>
-
-<div class="imam-container" id="imamBox" style="display: none;">
-    <div class="imam-header">
-        <div class="imam-header-left">
-            <i class="fas fa-mosque"></i>
-            <h3>Jadwal Imam Shalat Fardhu</h3>
-        </div>
-        <span class="imam-badge-hari" id="imamBadgeHari">Hari Ini</span>
-    </div>
-    <div class="imam-table-wrapper">
-        <table class="imam-table">
-            <thead>
-                <tr>
-                    <th style="width: 35%;">Waktu</th>
-                    <th style="width: 65%;">Nama Imam Shalat</th>
-                </tr>
-            </thead>
-            <tbody id="imamTableBody">
-                <tr><td colspan="2" class="text-center">Memuat jadwal...</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="piket-kantor-container" id="piketKantorBox">
-    <div class="piket-header">
-        <div class="piket-header-left">
-            <i class="fas fa-user-clock"></i>
-            <h3>Petugas Piket Kantor</h3>
-        </div>
-        <span class="piket-badge-hari" id="piketBadgeHari">Hari Ini</span>
-    </div>
-    <div class="piket-table-wrapper">
-        <table class="piket-table">
-            <thead>
-                <tr>
-                    <th class="text-center" style="width: 15%;">No</th>
-                    <th style="width: 85%;">Nama Petugas Piket</th>
-                </tr>
-            </thead>
-            <tbody id="piketTableBody">
-                <tr><td colspan="2" class="text-center">Memuat data piket...</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="piket-kantor-container" id="piketAhadBox" style="display: none; border-top: 4px solid var(--accent-gold);">
-    <div class="piket-header">
-        <div class="piket-header-left" style="color: var(--accent-gold);">
-            <i class="fas fa-calendar-check"></i>
-            <h3 style="color: var(--text-dark);">Jadwal Piket Ahad</h3>
-        </div>
-        <span class="piket-badge-hari" id="piketAhadBadge" style="background: #fffbeb; color: #d97706;">Ahad Ke-X</span>
-    </div>
-    <div class="piket-table-wrapper">
-        <table class="piket-table">
-            <thead>
-                <tr>
-                    <th class="text-center" style="width: 15%; background: linear-gradient(135deg, var(--accent-gold), #d97706);">No</th>
-                    <th style="width: 85%; background: linear-gradient(135deg, var(--accent-gold), #d97706);">Nama Petugas Piket</th>
-                </tr>
-            </thead>
-            <tbody id="piketAhadTableBody">
-                <tr><td colspan="2" class="text-center">Memuat data piket...</td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="jaga-malam-container" id="jagaMalamBox">
-    <div class="jaga-icon-wrapper">
-        <i class="fas fa-user"></i>
-    </div>
-<div class="jaga-content">
-    <span class="jaga-label" id="jagaMalamNama">Memuat...</span>
-    <span class="jaga-nama" id="jagaMalamLabel">YANG JAGA MALAM INI</span>
-</div>
-    <div class="jaga-arrow">
-        <i class="fas fa-chevron-right"></i>
-    </div>
-</div>
-
-<div class="ultah-container" id="ultahUstadzBox">
-    <div class="ultah-header">
-        <i class="fas fa-birthday-cake"></i>
-        <h3>Ustadz/ah Yang Berulang Tahun Hari Ini</h3>
-    </div>
-    <div class="ultah-table-wrapper">
-        <table class="ultah-table">
-            <thead>
-                <tr>
-                    <th class="text-center" style="width: 10%">No</th>
-                    <th style="width: 45%">Nama Ustadz</th>
-                    <th style="width: 30%">Tgl Lahir</th>
-                    <th class="text-center" style="width: 15%">Umur</th>
-                </tr>
-            </thead>
-            <tbody id="ultahUstadzTableBody">
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<div class="calendar-container">
-    <div class="calendar-header">
-        <button class="calendar-btn" onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
-        <h3 id="calendarMonth">Januari 2024</h3>
-        <button class="calendar-btn" onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <div class="calendar-grid" id="calendarGrid"></div>
-</div>
-
-<div class="charts-container">
-    <div class="donut-wrapper">
-        <div class="donut-box">
-            <h4>Santri Putri</h4>
-            <canvas id="chartPutri"></canvas>
-        </div>
-        <div class="donut-box">
-            <h4>Santri Putra</h4>
-            <canvas id="chartPutra"></canvas>
-        </div>
-    </div>
-
-    <div class="bar-wrapper">
-        <canvas id="chartKelas"></canvas>
-    </div>
-
-    <div class="stats-container">
-        <div class="stat-card card-putra">
-            <i class="fas fa-male"></i>
-            <div class="stat-label">Putra</div>
-            <div class="stat-value" id="valPutra">0</div>
-        </div>
-        <div class="stat-card card-putri">
-            <i class="fas fa-female"></i>
-            <div class="stat-label">Putri</div>
-            <div class="stat-value" id="valPutri">0</div>
-        </div>
-        <div class="stat-card card-total">
-            <i class="fas fa-users"></i>
-            <div class="stat-label">Total</div>
-            <div class="stat-value" id="valTotal">0</div>
-        </div>
-    </div>
-</div>
-<div class="peringatan-container" id="peringatanBox">
-    <div class="peringatan-header">
-        <i class="fas fa-bell"></i>
-        <h3>Kembali Kami Mengingatkan</h3>
-    </div>
-    <div class="peringatan-list" id="peringatanList">
-    </div>
-</div>
-
-<div class="kota-container">
-    <a href="https://jgjk.mobi/m/2432172722568dbb1b8ea4120.25492888"><img src="https://i.ibb.co.com/Zs6yvcx/icon-3-container-1.png" alt="Donasi"></a>
-    <a href="https://6a15c5464af25337089502f7--inquisitive-shortbread-d25842.netlify.app/"><img src="https://i.ibb.co.com/jvkP6y0Z/icon-3-container-2.png" alt="Qurban"></a>
-    <a href="https://jgjk.mobi/m/5557102562568c63d43e606a9.26876067"><img src="https://i.ibb.co.com/N6FksY8Q/icon-3-container-3.png" alt="Foto"></a>
-</div>
-
-<div class="slider-wrapper">
-    <div class="slider" id="autoSlider">
-        <div class="image-slide">
-            <img src="https://i.ibb.co.com/xWrW9rv/IMG-20260519-WA0004.jpg">
-            <div class="caption">Penilaian Akhir Semester</div>
-        </div>
-        <div class="image-slide">
-            <img src="https://i.ibb.co.com/5Xw77S1q/IMG-202514-WA0037.jpg">
-            <div class="caption">Kegiatan Bagian Bahasa Putra</div>
-        </div>
-        <div class="image-slide">
-            <img src="https://i.ibb.co.com/5W48SN0V/IMG-20251101-WA0067.jpg">
-            <div class="caption">Apel Pagi Santri Putri IZY</div>
-        </div>
-        <div class="image-slide">
-            <img src="https://i.ibb.co.com/0Rd0TBKY/20241217-094253.jpg">
-            <div class="caption">Kegiatan Belajar Santri Pesantren Ibnul JauZY</div>
-        </div>
-    </div>
-</div>
+<!-- AKHIR AREA WIDGET GRID                         -->
+<!-- ============================================== -->
 
 <!-- MENU WA YANG BARU MENJULUR DARI BAWAH -->
 <div class="wa-contact-list" id="waContactList" onclick="event.stopPropagation()">
@@ -974,41 +940,45 @@
         });
     }
 
-    function updateDisplayImam() {
-        const tbody = document.getElementById("imamTableBody");
-        const badgeHari = document.getElementById("imamBadgeHari");
-        const imamBox = document.getElementById("imamBox");
-        if (!tbody || !badgeHari || !imamBox) return;
+function updateDisplayImam() {
+    const tbody = document.getElementById("imamTableBody");
+    const badgeHari = document.getElementById("imamBadgeHari");
+    const imamBox = document.getElementById("imamBox");
+    if (!tbody || !badgeHari || !imamBox) return;
 
-        const now = new Date();
-        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+    
+    // TAMBAHKAN BARIS INI UNTUK MENDEFINISIKAN targetDate
+    let targetDate = new Date(); 
 
-        // UNTUK MENYEMBUNYIKAN TAMPILAN JADWAL IMAM
+    // Rumus konversi menit harian: Jam * 60 + Menit
 
-        // Rentang 1: 05:40 - 12:19 ((05 * 60 + 40) sampai (12 * 60 + 19))
-        const isHiddenTime1 = currentMinutes >= 340 && currentMinutes <= 739;
+    // Rentang 1: 05:40 - 12:19 ((05 * 60 + 40) sampai (12 * 60 + 19))
+    const isHiddenTime1 = currentMinutes >= 340 && currentMinutes <= 739;
 
-        // Rentang 2: 13:30 - 15:30 ((13 * 60 + 30) sampai (15 * 60 + 30))
-        const isHiddenTime2 = currentMinutes >= 810 && currentMinutes <= 930;
+    // Rentang 2: 13:30 - 15:30 ((13 * 60 + 30) sampai (15 * 60 + 30))
+    const isHiddenTime2 = currentMinutes >= 810 && currentMinutes <= 930;
 
-        // Rentang 3: 16:20 - 17:30 ((16 * 60 + 20) sampai (17 * 60 + 30))
-        const isHiddenTime3 = currentMinutes >= 980 && currentMinutes <= 1050;
+    // Rentang 3: 16:20 - 17:30 ((16 * 60 + 20) sampai (17 * 60 + 30))
+    const isHiddenTime3 = currentMinutes >= 980 && currentMinutes <= 1050;
 
-        // Rentang 4: 21:00 - 04:30 ((21 * 60 + 00) sampai (04 * 60 + 30))
-        const isHiddenTime4 = currentMinutes >= 1260 || currentMinutes <= 270;
+    // Rentang 4: 21:00 - 04:30 ((21 * 60 + 00) sampai (04 * 60 + 30))
+    const isHiddenTime4 = currentMinutes >= 1260 || currentMinutes <= 270;
 
-        if (isHiddenTime1 || isHiddenTime2 || isHiddenTime3 || isHiddenTime4) {
-            imamBox.style.display = "none";
-            return;
-        }
+    if (isHiddenTime1 || isHiddenTime2 || isHiddenTime3 || isHiddenTime4) {
+        imamBox.style.display = "none";
+        return;
+    }
 
-        // 20:20 (20*60+20 = 1220) MENAMPILKAN JADWAL IMAM BESOK
-        if (currentMinutes >= 1220) {
+    // 20:20 (20*60+20 = 1220) Untuk merubah jadwal untuk besok
+    if (currentMinutes >= 1220) {
         targetDate.setDate(targetDate.getDate() + 1);
-        }
+    }
 
-        const hariIndoList = ["Ahad", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-        const hariTarget = hariIndoList[targetDate.getDay()];
+    const hariIndoList = ["Ahad", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+    const hariTarget = hariIndoList[targetDate.getDay()];
+    
         badgeHari.textContent = hariTarget;
 
         let dataHariIni = {};
