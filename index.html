@@ -3,666 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Tosca - Desktop</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Dashboard IZY - Input Data</title>
     <!-- Font Awesome untuk Ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* =========================================================
-           1. VARIABEL WARNA (TEMA HIJAU TOSCA)
-           ========================================================= */
+        /* Pengaturan Dasar */
         :root {
-            --sidebar-bg: #013838;       /* Hijau tosca sangat gelap untuk sidebar */
-            --sidebar-hover: #035252;    /* Efek hover sidebar */
-            --sidebar-active: #0a9898;   /* Warna aktif menu */
-            
-            --primary-tosca: #036c6c;    /* Tosca utama */
-            --light-tosca: #e6f4f4;      /* Background icon/badge tosca terang */
-            
-            --bg-body: #f4f7f6;          /* Abu-abu sangat muda untuk background konten */
-            --card-bg: #ffffff;          /* Putih untuk card */
-            
-            --text-dark: #1e293b;        /* Teks utama (hitam keabuan) */
-            --text-muted: #64748b;       /* Teks sekunder (abu-abu) */
-            
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        /* =========================================================
-           2. RESET & PENGATURAN UMUM
-           ========================================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            --sidebar-bg: #014d4d;
+            --sidebar-active-bg: #0d999e;
+            --main-bg: #f0f7f7;
+            --card-bg: #e3f2f2;
+            --text-dark: #333;
+            --text-light: #fff;
+            --tosca-dark: #014d4d;
+            --tosca-light: #0d999e;
+            --white: #fff;
         }
 
         body {
-            background-color: var(--bg-body);
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--main-bg);
             color: var(--text-dark);
-            display: flex;
+            overflow: hidden; /* Mencegah scroll di body */
             height: 100vh;
-            overflow: hidden; /* Mencegah scroll di body, scroll diatur di area konten */
-        }
-
-        a { text-decoration: none; }
-        ul { list-style: none; }
-
-        /* =========================================================
-           3. SIDEBAR (MENU KIRI)
-           ========================================================= */
-        .sidebar {
-            width: 260px;
-            background-color: var(--sidebar-bg);
-            color: white;
             display: flex;
             flex-direction: column;
-            height: 100%;
-            transition: all 0.3s;
+        }
+
+        /* Simulasi Header Peramban */
+        .browser-header {
+            background-color: #f1f3f4;
+            color: #3c4043;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #dadce0;
+            font-size: 14px;
+        }
+
+        .browser-tab {
+            background-color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px 8px 0 0;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #dadce0;
+            border-bottom: none;
+        }
+
+        .browser-address-bar {
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 20px;
+            padding: 4px 12px;
+            flex-grow: 1;
+            margin-right: 16px;
+            font-size: 13px;
+        }
+
+        .browser-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .browser-icons i {
+            color: #5f6368;
+            cursor: pointer;
+        }
+
+        /* Tata Letak Utama */
+        .app-container {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden; /* Mencegah scroll di container */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
             flex-shrink: 0;
         }
 
-        .sidebar-header {
-            padding: 24px;
+        .sidebar-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            gap: 10px;
+            padding: 0 20px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
         }
 
-        .sidebar-header img {
-            height: 32px;
-            /* Jika ada logo putih: filter: brightness(0) invert(1); */
+        .sidebar-logo i {
+            font-size: 28px;
         }
 
-        .sidebar-header h2 {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        .sidebar-label {
+            font-size: 12px;
+            color: #a9a9a9;
+            padding: 0 20px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
         .sidebar-menu {
-            padding: 20px 15px;
-            overflow-y: auto;
-            flex: 1;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        /* Kustomisasi Scrollbar Sidebar */
-        .sidebar-menu::-webkit-scrollbar { width: 5px; }
-        .sidebar-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 5px; }
-
-        .menu-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 15px 0 8px 10px;
-        }
-
-        .menu-item {
+        .sidebar-menu li {
+            padding: 12px 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 15px;
-            color: rgba(255,255,255,0.8);
-            border-radius: 8px;
-            margin-bottom: 5px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.2s ease;
+            gap: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .menu-item:hover {
-            background-color: var(--sidebar-hover);
-            color: white;
+        .sidebar-menu li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .menu-item.active {
-            background-color: var(--sidebar-active);
-            color: white;
-            font-weight: 600;
+        .sidebar-menu li.active {
+            background-color: var(--sidebar-active-bg);
         }
 
-        .menu-item i {
-            width: 20px;
-            text-align: center;
-            font-size: 16px;
+        .sidebar-menu li i {
+            font-size: 18px;
         }
 
-        .badge-notification {
-            background: #ef4444;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-
-        /* =========================================================
-           4. KONTEN UTAMA (KANAN)
-           ========================================================= */
-        .main-wrapper {
-            flex: 1;
+        /* Area Konten Utama */
+        .main-content {
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow-y: auto; /* Memungkinkan scroll di area konten */
+            padding: 20px;
         }
 
-        /* --- TOPBAR --- */
+        /* Topbar */
         .topbar {
-            height: 70px;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--white);
+            padding: 15px 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 30px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .search-bar {
-            position: relative;
-            width: 400px;
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #dadce0;
         }
 
-        .search-bar i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: var(--bg-body);
+        .topbar-left input {
+            border: none;
+            background-color: transparent;
             font-size: 14px;
-            outline: none;
-            transition: 0.2s;
+            width: 300px;
         }
 
-        .search-bar input:focus {
-            border-color: var(--sidebar-active);
-            background-color: white;
+        .topbar-left input:focus {
+            outline: none;
         }
 
         .topbar-right {
             display: flex;
             align-items: center;
-            gap: 25px;
-        }
-
-        .icon-btn {
-            background: none;
-            border: none;
-            font-size: 20px;
-            color: var(--text-muted);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .icon-btn .dot {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 8px;
-            height: 8px;
-            background-color: #ef4444;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            background-color: var(--sidebar-active);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 16px;
-        }
-
-        .user-info { display: flex; flex-direction: column; }
-        .user-info .role { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-        .user-info .name { font-size: 14px; font-weight: 600; color: var(--text-dark); }
-
-        /* --- AREA KONTEN DASHBOARD --- */
-        .content-area {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-        }
-
-        /* GRID BAGIAN ATAS (Kartu Welcome & Statistik) */
-        .dashboard-top-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
             gap: 20px;
-            margin-bottom: 20px;
         }
 
-        /* 1. KARTU WELCOME (TOSCA GRADIENT) */
-        .welcome-card {
-            background: linear-gradient(135deg, var(--sidebar-active), var(--primary-tosca));
-            border-radius: 16px;
-            padding: 25px;
-            color: white;
-            box-shadow: var(--shadow-md);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome-card::after {
-            content: '';
-            position: absolute;
-            right: -20px;
-            bottom: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-        }
-
-        .welcome-subtitle { font-size: 12px; opacity: 0.8; font-weight: 500; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .welcome-title { font-size: 22px; font-weight: 700; margin-bottom: 15px; line-height: 1.3; }
-        
-        .welcome-meta {
-            display: flex;
-            gap: 15px;
-            font-size: 12px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-        .welcome-meta i { margin-right: 5px; }
-
-        .welcome-actions { display: flex; gap: 10px; position: relative; z-index: 2; }
-        
-        .btn {
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.5);
-            color: white;
-        }
-        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
-
-        .btn-white {
-            background: white;
-            color: var(--primary-tosca);
-            border: 1px solid white;
-        }
-        .btn-white:hover { background: #f8fafc; }
-
-        /* 2. KARTU STATISTIK (Tagihan/Tunggakan) */
-        .stat-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .stat-header { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 13px; font-weight: 500; margin-bottom: 10px; }
-        .stat-header i { font-size: 16px; }
-        .stat-icon-blue { color: #3b82f6; }
-        .stat-icon-orange { color: #f97316; }
-        
-        .stat-value { font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; }
-        
-        .stat-desc { font-size: 12px; font-weight: 500; }
-        .text-green { color: #10b981; }
-        .text-gray { color: var(--text-muted); }
-
-        /* GRID INFORMASI (Jenjang, Status, dll) */
-        .info-badges-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .info-badge {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .badge-icon {
-            width: 35px;
-            height: 35px;
-            background: var(--light-tosca);
-            color: var(--sidebar-active);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .badge-text { display: flex; flex-direction: column; }
-        .badge-text span { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-        .badge-text strong { font-size: 14px; color: var(--text-dark); font-weight: 700; margin-top: 2px; }
-
-        /* AREA AKSES CEPAT (GRID ICON) */
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
+        .topbar-right .sidebar-logo {
             color: var(--text-dark);
-            margin-bottom: 15px;
+            margin: 0;
         }
 
-        .quick-access-grid {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
+        .topbar-right i.fa-bell {
+            color: #5f6368;
+            cursor: pointer;
+        }
+
+        /* Area Kartu Input Data */
+        .input-data-section {
             display: grid;
-            grid-template-columns: repeat(8, 1fr); /* 8 kolom seperti di gambar */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            padding: 10px;
         }
 
-        .quick-item {
+        /* Kartu Input Data */
+        .input-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
             text-align: center;
-            cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .quick-item:hover {
+        .input-card:hover {
             transform: translateY(-5px);
         }
 
-        .quick-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 14px;
+        .input-card-icon {
+            font-size: 50px;
+            color: var(--tosca-light);
+            margin-bottom: 15px;
+        }
+
+        .input-card-icon i {
+            display: inline-block;
+        }
+
+        .input-card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .input-card-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .input-card-button {
+            background-color: var(--tosca-light);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-card-button:hover {
+            background-color: var(--tosca-dark);
+        }
+
+        /* Simulasi Windows Taskbar */
+        .windows-taskbar {
+            background-color: #2b2b2b;
+            color: #fff;
+            padding: 10px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 22px;
+            justify-content: space-between;
+            font-size: 13px;
         }
-        .quick-item span { font-size: 12px; font-weight: 600; color: var(--text-dark); }
 
-        /* Warna icon akses cepat (Variasi warna pastel) */
-        .bg-blue { background: #eff6ff; color: #3b82f6; }
-        .bg-green { background: #ecfdf5; color: #10b981; }
-        .bg-purple { background: #f5f3ff; color: #8b5cf6; }
-        .bg-red { background: #fef2f2; color: #ef4444; }
-        .bg-orange { background: #fff7ed; color: #f97316; }
-        .bg-indigo { background: #eef2ff; color: #6366f1; }
-        .bg-tosca { background: var(--light-tosca); color: var(--sidebar-active); }
-
-        /* Responsif Sederhana untuk Desktop/Laptop Kecil */
-        @media (max-width: 1200px) {
-            .dashboard-top-grid { grid-template-columns: 1fr 1fr; }
-            .welcome-card { grid-column: span 2; }
-            .info-badges-grid { grid-template-columns: repeat(2, 1fr); }
-            .quick-access-grid { grid-template-columns: repeat(4, 1fr); }
+        .windows-taskbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
+
+        .windows-taskbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .windows-taskbar i {
+            color: #fff;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- ============================================== -->
-    <!-- BAGIAN KIRI: SIDEBAR -->
-    <!-- ============================================== -->
-    <aside class="sidebar">
-        <!-- Logo Area -->
-        <div class="sidebar-header">
-            <i class="fas fa-graduation-cap" style="font-size: 24px; color: var(--accent-gold);"></i>
-            <h2>IZY</h2>
+    <!-- Simulasi Header Peramban -->
+    <div class="browser-header">
+        <div class="browser-tab">
+            <i class="fa fa-tachometer-alt" style="color: #0d999e; margin-right: 8px;"></i> Dashboard Tosca - Desktop
         </div>
-
-        <!-- Menu Area -->
-        <div class="sidebar-menu">
-            <div class="menu-label">Member</div>
-            <a href="#" class="menu-item active">
-                <i class="fas fa-home"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-school"></i>
-                <span>Input Data</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-box-open"></i>
-                <span>Laporan</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-file-invoice-dollar"></i>
-                <span>Export</span>
-            </a>
-
-            <div class="menu-label">Ponpes Ibnul Jauzy</div>
-            <a href="#" class="menu-item">
-                <i class="fas fa-video"></i>
-                <span>-</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-laptop-code"></i>
-                <span>-</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-newspaper"></i>
-                <span>-</span>
-            </a>
-
-            <div class="menu-label">Ponpes Ibnul Jauzy</div>
-            <a href="#" class="menu-item">
-                <i class="fas fa-headset"></i>
-                <span>-</span>
-            </a>
-            <a href="#" class="menu-item">
-                <i class="fas fa-user-cog"></i>
-                <span>-</span>
-            </a>
-            <a href="#" class="menu-item" style="margin-top: 20px;">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>-</span>
-            </a>
+        <div class="browser-address-bar">
+            bendaharaizy-2021.github.io/izy/input-data
         </div>
-    </aside>
+        <div class="browser-icons">
+            <i class="fa fa-arrow-left"></i>
+            <i class="fa fa-arrow-right"></i>
+            <i class="fa fa-redo"></i>
+            <i class="fa fa-home"></i>
+            <i class="fa fa-user-circle"></i>
+            <i class="fa fa-ellipsis-v"></i>
+        </div>
+    </div>
 
-    <!-- ============================================== -->
-    <!-- BAGIAN KANAN: KONTEN UTAMA -->
-    <!-- ============================================== -->
-    <main class="main-wrapper">
-        
-        <!-- TOPBAR -->
-        <header class="topbar">
-            <!-- Pencarian -->
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cari fitur atau data...">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fa fa-graduation-cap"></i> IZY
             </div>
 
-            <!-- Profil & Notifikasi -->
-            <div class="topbar-right">
-                <button class="icon-btn">
-                    <i class="far fa-bell"></i>
-                    <span class="dot"></span>
-                </button>
-                <div class="user-profile">
-                    <div class="user-avatar">SE</div>
-                    <div class="user-info">
-                        <span class="role">Server Mysch</span>
-                        <span class="name">MEMBER</span>
+            <div class="sidebar-label">MEMBER</div>
+            <ul class="sidebar-menu">
+                <li><i class="fa fa-home"></i> Dashboard</li>
+                <li class="active"><i class="fa fa-database"></i> Input Data</li>
+                <li><i class="fa fa-envelope"></i> Laporan</li>
+                <li><i class="fa fa-file-export"></i> Export</li>
+            </ul>
+
+            <div class="sidebar-label">PONPES IBNUL JAUZY</div>
+            <ul class="sidebar-menu">
+                <li><i class="fa fa-minus"></i> -</li>
+            </ul>
+
+            <div class="sidebar-label">PONPES IBNUL JAUZY</div>
+            <ul class="sidebar-menu">
+                <li><i class="fa fa-minus"></i> -</li>
+            </ul>
+        </aside>
+
+        <!-- Area Konten Utama -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <div class="topbar-left">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Cari fitur atau data...">
+                </div>
+                <div class="topbar-right">
+                    <i class="fa fa-bell"></i>
+                    <div class="sidebar-logo">
+                        <i class="fa fa-graduation-cap"></i> IZY
                     </div>
                 </div>
             </div>
-        </header>
 
-        <!-- KONTEN DASHBOARD -->
-        <div class="content-area">
-            
-            <!-- GRID ATAS (Card Biru & Statistik) -->
-            <div class="dashboard-top-grid">
-                
-                <!-- Card Welcome Tosca -->
-                <div class="welcome-card">
-                    <div class="welcome-subtitle">MEMBER AREA — MYSCH.ID</div>
-                    <div class="welcome-title">Selamat datang,<br>SMK Negeri 1 Halmahera</div>
-                    
-                    <div class="welcome-meta">
-                        <span><i class="far fa-calendar-alt"></i> Kamis, 28 Mei 2026</span>
-                        <span><i class="fas fa-award"></i> Akreditasi: A</span>
+            <!-- Area Kartu Input Data -->
+            <section class="input-data-section">
+                <!-- Kartu 1: Input Absensi KST -->
+                <article class="input-card">
+                    <div class="input-card-icon">
+                        <i class="fa fa-clock"></i>
+                        <i class="fa fa-check" style="font-size: 20px; position: absolute; top: 10px; right: 10px; background: white; padding: 3px; border-radius: 50%;"></i>
                     </div>
-                    
-                    <div class="welcome-actions">
-                        <button class="btn btn-outline"><i class="fas fa-check-circle"></i> Cek Akreditasi</button>
-                        <button class="btn btn-white"><i class="fas fa-file-invoice"></i> Lihat Tagihan</button>
+                    <div class="input-card-title">Input Absensi KST</div>
+                    <div class="input-card-description">Rekam data absensi harian KST</div>
+                    <button class="input-card-button">Input Sekarang</button>
+                </article>
+
+                <!-- Kartu 2: Input Absensi KBM -->
+                <article class="input-card">
+                    <div class="input-card-icon">
+                        <i class="fa fa-calendar-alt"></i>
                     </div>
-                </div>
+                    <div class="input-card-title">Input Absensi KBM</div>
+                    <div class="input-card-description">Input absensi harian kegiatan belajar mengajar</div>
+                    <button class="input-card-button">Input Sekarang</button>
+                </article>
 
-                <!-- Card Stat 1 -->
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <i class="far fa-credit-card stat-icon-blue"></i>
-                        <span>Pembayaran Bulan Ini</span>
+                <!-- Kartu 3: Input Setoran Tahfizh Harian -->
+                <article class="input-card">
+                    <div class="input-card-icon">
+                        <i class="fa fa-book"></i>
+                        <i class="fa fa-microphone" style="font-size: 20px; position: absolute; top: 10px; right: 10px; background: white; padding: 3px; border-radius: 50%;"></i>
                     </div>
-                    <div class="stat-value">Rp 126.500.000</div>
-                    <div class="stat-desc text-green"><i class="fas fa-arrow-up"></i> +6% dari bulan lalu</div>
-                </div>
+                    <div class="input-card-title">Input Setoran Tahfizh Harian</div>
+                    <div class="input-card-description">Rekam setoran hafalan harian santri</div>
+                    <button class="input-card-button">Input Sekarang</button>
+                </article>
 
-                <!-- Card Stat 2 -->
-                <div class="stat-card">
-                    <div class="stat-header">
-                        <i class="fas fa-exclamation-circle stat-icon-orange"></i>
-                        <span>Tunggakan</span>
+                <!-- Kartu 4: Input Tasmi' -->
+                <article class="input-card">
+                    <div class="input-card-icon">
+                        <i class="fa fa-headphones"></i>
                     </div>
-                    <div class="stat-value">Rp 23.750.000</div>
-                    <div class="stat-desc text-gray"><i class="fas fa-users"></i> 2 Siswa</div>
-                </div>
+                    <div class="input-card-title">Input Tasmi'</div>
+                    <div class="input-card-description">Rekam data tasmi' (membaca Al-Quran)</div>
+                    <button class="input-card-button">Input Sekarang</button>
+                </article>
 
-            </div>
-
-            <!-- GRID INFO BADGE TENGAH -->
-            <div class="info-badges-grid">
-                
-                <div class="info-badge">
-                    <div class="badge-icon"><i class="fas fa-building"></i></div>
-                    <div class="badge-text">
-                        <span>Jenjang</span>
-                        <strong>SMA/MA</strong>
+                <!-- Kartu 5: Input Nilai KBM -->
+                <article class="input-card">
+                    <div class="input-card-icon">
+                        <i class="fa fa-pen"></i>
+                        <i class="fa fa-file-signature" style="font-size: 20px; position: absolute; top: 10px; right: 10px; background: white; padding: 3px; border-radius: 50%;"></i>
                     </div>
-                </div>
-                
-                <div class="info-badge">
-                    <div class="badge-icon"><i class="fas fa-flag"></i></div>
-                    <div class="badge-text">
-                        <span>Status</span>
-                        <strong>Negeri</strong>
-                    </div>
-                </div>
-                
-                <div class="info-badge">
-                    <div class="badge-icon"><i class="fas fa-medal"></i></div>
-                    <div class="badge-text">
-                        <span>Akreditasi</span>
-                        <strong>A</strong>
-                    </div>
-                </div>
-                
-                <div class="info-badge">
-                    <div class="badge-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="badge-text">
-                        <span>Skala</span>
-                        <strong>Besar</strong>
-                    </div>
-                </div>
+                    <div class="input-card-title">Input Nilai KBM</div>
+                    <div class="input-card-description">Input nilai ulangan/ujian kegiatan belajar mengajar</div>
+                    <button class="input-card-button">Input Sekarang</button>
+                </article>
+            </section>
+        </main>
+    </div>
 
-            </div>
-
-            <!-- GRID AKSES CEPAT BAWAH -->
-            <h3 class="section-title">Akses Cepat</h3>
-            <div class="quick-access-grid">
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-blue"><i class="fas fa-school"></i></div>
-                    <span>Identitas</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-green"><i class="fas fa-tools"></i></div>
-                    <span>Tools</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-purple"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <span>Billing</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-red"><i class="fas fa-box-open"></i></div>
-                    <span>Produk</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-orange"><i class="fas fa-newspaper"></i></div>
-                    <span>Artikel</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-indigo"><i class="fas fa-play-circle"></i></div>
-                    <span>Video</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-tosca"><i class="fas fa-chart-pie"></i></div>
-                    <span>Tracker</span>
-                </div>
-                
-                <div class="quick-item">
-                    <div class="quick-icon bg-green"><i class="fas fa-headset"></i></div>
-                    <span>Konsultasi</span>
-                </div>
-
-            </div>
-
-        </div> <!-- End Content Area -->
-    </main>
+    <!-- Simulasi Windows Taskbar -->
+    <div class="windows-taskbar">
+        <div class="windows-taskbar-left">
+            <i class="fab fa-windows" style="color: #0d999e;"></i>
+            <i class="fa fa-search"></i>
+            <i class="fa fa-folder"></i>
+            <i class="fab fa-chrome" style="color: #0d999e;"></i>
+            <i class="fab fa-microsoft-teams"></i>
+        </div>
+        <div class="windows-taskbar-right">
+            <i class="fa fa-language"></i>
+            <i class="fa fa-battery-three-quarters"></i>
+            <i class="fa fa-wifi"></i>
+            <span>ENG</span>
+            <span>06:41</span>
+            <span>31/07/2026</span>
+        </div>
+    </div>
 
 </body>
 </html>
