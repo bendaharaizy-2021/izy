@@ -3,433 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard IZY - Input Data</title>
-    <!-- Font Awesome untuk Ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dashboard IZY - Elegan & Tidy</title>
     <style>
-        /* Pengaturan Dasar */
-        :root {
-            --sidebar-bg: #014d4d;
-            --sidebar-active-bg: #0d999e;
-            --main-bg: #f0f7f7;
-            --card-bg: #e3f2f2;
-            --text-dark: #333;
-            --text-light: #fff;
-            --tosca-dark: #014d4d;
-            --tosca-light: #0d999e;
-            --white: #fff;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--main-bg);
-            color: var(--text-dark);
-            overflow: hidden; /* Mencegah scroll di body */
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #006666;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
-        }
-
-        /* Simulasi Header Peramban */
-        .browser-header {
-            background-color: #f1f3f4;
-            color: #3c4043;
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #dadce0;
-            font-size: 14px;
-        }
-
-        .browser-tab {
-            background-color: #fff;
-            padding: 8px 16px;
-            border-radius: 8px 8px 0 0;
-            margin-right: 8px;
-            display: flex;
-            align-items: center;
-            border: 1px solid #dadce0;
-            border-bottom: none;
-        }
-
-        .browser-address-bar {
-            background-color: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 20px;
-            padding: 4px 12px;
-            flex-grow: 1;
-            margin-right: 16px;
-            font-size: 13px;
-        }
-
-        .browser-icons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .browser-icons i {
-            color: #5f6368;
-            cursor: pointer;
-        }
-
-        /* Tata Letak Utama */
-        .app-container {
-            display: flex;
-            flex-grow: 1;
-            overflow: hidden; /* Mencegah scroll di container */
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background-color: var(--sidebar-bg);
-            color: var(--text-light);
-            display: flex;
-            flex-direction: column;
             padding-top: 20px;
-            flex-shrink: 0;
         }
 
-        .sidebar-logo {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 0 20px;
-            font-size: 24px;
-            font-weight: bold;
+            padding-left: 20px;
             margin-bottom: 30px;
         }
 
-        .sidebar-logo i {
+        .logo-icon {
             font-size: 28px;
+            margin-right: 12px;
+            vertical-align: middle;
         }
 
-        .sidebar-label {
-            font-size: 12px;
-            color: #a9a9a9;
-            padding: 0 20px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
             margin: 0;
         }
 
-        .sidebar-menu li {
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .menu-title {
+            padding-left: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #ccc;
+            margin-bottom: 10px;
         }
 
-        .sidebar-menu li:hover {
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: #f1f1f1;
+        }
+
+        .menu-item:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .sidebar-menu li.active {
-            background-color: var(--sidebar-active-bg);
+        .menu-item.active {
+            background-color: #009999;
+            color: white;
+            font-weight: bold;
         }
 
-        .sidebar-menu li i {
+        .menu-item-icon {
             font-size: 18px;
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
         }
 
-        /* Area Konten Utama */
+        /* Main Content Styling */
         .main-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto; /* Memungkinkan scroll di area konten */
+            margin-left: 250px;
             padding: 20px;
-        }
-
-        /* Topbar */
-        .topbar {
-            background-color: var(--white);
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .topbar-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background-color: #f1f3f4;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #dadce0;
-        }
-
-        .topbar-left input {
-            border: none;
-            background-color: transparent;
-            font-size: 14px;
-            width: 300px;
-        }
-
-        .topbar-left input:focus {
-            outline: none;
-        }
-
-        .topbar-right {
-            display: flex;
-            align-items: center;
+            height: calc(100vh - 40px); /* Fill space below address bar */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: min-content;
             gap: 20px;
+            overflow-y: auto;
         }
 
-        .topbar-right .sidebar-logo {
-            color: var(--text-dark);
-            margin: 0;
-        }
-
-        .topbar-right i.fa-bell {
-            color: #5f6368;
+        /* Input Box Styling */
+        .input-box {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
         }
 
-        /* Area Kartu Input Data */
-        .input-data-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 10px;
-        }
-
-        /* Kartu Input Data */
-        .input-card {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .input-card:hover {
+        .input-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .input-card-icon {
-            font-size: 50px;
-            color: var(--tosca-light);
-            margin-bottom: 15px;
-        }
-
-        .input-card-icon i {
-            display: inline-block;
-        }
-
-        .input-card-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-
-        .input-card-description {
-            font-size: 14px;
-            color: #666;
+        .input-icon {
+            font-size: 40px;
+            color: #009999;
             margin-bottom: 20px;
         }
 
-        .input-card-button {
-            background-color: var(--tosca-light);
-            color: var(--white);
-            border: none;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-size: 14px;
+        .input-title {
+            font-size: 18px;
             font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .input-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .input-btn {
+            background-color: #009999;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 25px;
+            font-size: 14px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background 0.3s;
         }
 
-        .input-card-button:hover {
-            background-color: var(--tosca-dark);
+        .input-btn:hover {
+            background-color: #007777;
         }
 
-        /* Simulasi Windows Taskbar */
-        .windows-taskbar {
-            background-color: #2b2b2b;
-            color: #fff;
-            padding: 10px;
+        /* Windows 11 Taskbar simulation for realism */
+        .taskbar-sim {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            background-color: #f1f3f4;
+            border-top: 1px solid #d3d3d3;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
             font-size: 13px;
+            color: #5f6368;
+            z-index: 1000;
         }
 
-        .windows-taskbar-left {
+        .taskbar-start {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .taskbar-icons {
             display: flex;
             align-items: center;
             gap: 15px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .windows-taskbar-right {
+        .taskbar-tray {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .windows-taskbar i {
-            color: #fff;
-            cursor: pointer;
-        }
-
+        /* Gradient and Icons (requires FontAwesome for full effect) */
+        /* For this demo, using text representations */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
     </style>
 </head>
 <body>
 
-    <!-- Simulasi Header Peramban -->
-    <div class="browser-header">
-        <div class="browser-tab">
-            <i class="fa fa-tachometer-alt" style="color: #0d999e; margin-right: 8px;"></i> Dashboard Tosca - Desktop
+    <!-- Sidebar with a single, elegant IZY logo -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <span class="logo-icon"><i class="fas fa-user-graduate"></i></span>
+            <p class="logo-text">IZY</p>
         </div>
-        <div class="browser-address-bar">
-            bendaharaizy-2021.github.io/izy/input-data
+
+        <p class="menu-title">MEMBER</p>
+        <div class="menu-item active">
+            <span class="menu-item-icon"><i class="fas fa-home"></i></span> Dashboard
         </div>
-        <div class="browser-icons">
-            <i class="fa fa-arrow-left"></i>
-            <i class="fa fa-arrow-right"></i>
-            <i class="fa fa-redo"></i>
-            <i class="fa fa-home"></i>
-            <i class="fa fa-user-circle"></i>
-            <i class="fa fa-ellipsis-v"></i>
+        <div class="menu-item">
+            <span class="menu-item-icon"><i class="fas fa-database"></i></span> Input Data
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-icon"><i class="fas fa-envelope"></i></span> Laporan
+        </div>
+        <div class="menu-item">
+            <span class="menu-item-icon"><i class="fas fa-file-export"></i></span> Export
+        </div>
+
+        <p class="menu-title">PONPES IBNUL JAUZY</p>
+        <div class="menu-item">
+            <span class="menu-item-icon">-</span> -
+        </div>
+        <p class="menu-title">PONPES IRNUL JAUZY</p>
+        <div class="menu-item">
+            <span class="menu-item-icon">-</span> -
         </div>
     </div>
 
-    <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-logo">
-                <i class="fa fa-graduation-cap"></i> IZY
-            </div>
+    <!-- Main Content with input boxes moved up and filling space -->
+    <div class="main-content">
+        <!-- New top row (previously centered) -->
+        <div class="input-box">
+            <i class="input-icon fas fa-clock"></i>
+            <p class="input-title">Input Absensi KST</p>
+            <p class="input-desc">Rekam data absensi harian KST</p>
+            <button class="input-btn">Input Sekarang</button>
+        </div>
+        <div class="input-box">
+            <i class="input-icon fas fa-calendar-alt"></i>
+            <p class="input-title">Input Absensi KBM</p>
+            <p class="input-desc">Input absensi harian kegiatan belajar mengajar</p>
+            <button class="input-btn">Input Sekarang</button>
+        </div>
+        <div class="input-box">
+            <i class="input-icon fas fa-book-open"></i>
+            <p class="input-title">Input Setoran Tahfizh Harian</p>
+            <p class="input-desc">Rekam setoran hafalan harian santri</p>
+            <button class="input-btn">Input Sekarang</button>
+        </div>
 
-            <div class="sidebar-label">MEMBER</div>
-            <ul class="sidebar-menu">
-                <li><i class="fa fa-home"></i> Dashboard</li>
-                <li class="active"><i class="fa fa-database"></i> Input Data</li>
-                <li><i class="fa fa-envelope"></i> Laporan</li>
-                <li><i class="fa fa-file-export"></i> Export</li>
-            </ul>
-
-            <div class="sidebar-label">PONPES IBNUL JAUZY</div>
-            <ul class="sidebar-menu">
-                <li><i class="fa fa-minus"></i> -</li>
-            </ul>
-
-            <div class="sidebar-label">PONPES IBNUL JAUZY</div>
-            <ul class="sidebar-menu">
-                <li><i class="fa fa-minus"></i> -</li>
-            </ul>
-        </aside>
-
-        <!-- Area Konten Utama -->
-        <main class="main-content">
-            <!-- Topbar -->
-            <div class="topbar">
-                <div class="topbar-left">
-                    <i class="fa fa-search"></i>
-                    <input type="text" placeholder="Cari fitur atau data...">
-                </div>
-                <div class="topbar-right">
-                    <i class="fa fa-bell"></i>
-                    <div class="sidebar-logo">
-                        <i class="fa fa-graduation-cap"></i> IZY
-                    </div>
-                </div>
-            </div>
-
-            <!-- Area Kartu Input Data -->
-            <section class="input-data-section">
-                <!-- Kartu 1: Input Absensi KST -->
-                <article class="input-card">
-                    <div class="input-card-icon">
-                        <i class="fa fa-clock"></i>
-                        <i class="fa fa-check" style="font-size: 20px; position: absolute; top: 10px; right: 10px; background: white; padding: 3px; border-radius: 50%;"></i>
-                    </div>
-                    <div class="input-card-title">Input Absensi KST</div>
-                    <div class="input-card-description">Rekam data absensi harian KST</div>
-                    <button class="input-card-button">Input Sekarang</button>
-                </article>
-
-                <!-- Kartu 2: Input Absensi KBM -->
-                <article class="input-card">
-                    <div class="input-card-icon">
-                        <i class="fa fa-calendar-alt"></i>
-                    </div>
-                    <div class="input-card-title">Input Absensi KBM</div>
-                    <div class="input-card-description">Input absensi harian kegiatan belajar mengajar</div>
-                    <button class="input-card-button">Input Sekarang</button>
-                </article>
-
-                <!-- Kartu 3: Input Setoran Tahfizh Harian -->
-                <article class="input-card">
-                    <div class="input-card-icon">
-                        <i class="fa fa-book"></i>
-                        <i class="fa fa-microphone" style="font-size: 20px; position: absolute; top: 10px; right: 10px; background: white; padding: 3px; border-radius: 50%;"></i>
-                    </div>
-                    <div class="input-card-title">Input Setoran Tahfizh Harian</div>
-                    <div class="input-card-description">Rekam setoran hafalan harian santri</div>
-                    <button class="input-card-button">Input Sekarang</button>
-                </article>
-
-                <!-- Kartu 4: Input Tasmi' -->
-                <article class="input-card">
-                    <div class="input-card-icon">
-                        <i class="fa fa-headphones"></i>
-                    </div>
-                    <div class="input-card-title">Input Tasmi'</div>
-                    <div class="input-card-description">Rekam data tasmi' (membaca Al-Quran)</div>
-                    <button class="input-card-button">Input Sekarang</button>
-                </article>
-
-                <!-- Kartu 5: Input Nilai KBM -->
-                <article class="input-card">
-                    <div class="input-card-icon">
-                        <i class="fa fa-pen"></i>
-                        <i class="fa fa-file-signature" style="font-size: 20px; position: absolute; top: 10px; right: 10px; background: white; padding: 3px; border-radius: 50%;"></i>
-                    </div>
-                    <div class="input-card-title">Input Nilai KBM</div>
-                    <div class="input-card-description">Input nilai ulangan/ujian kegiatan belajar mengajar</div>
-                    <button class="input-card-button">Input Sekarang</button>
-                </article>
-            </section>
-        </main>
+        <!-- Second row (shifted up) -->
+        <div class="input-box">
+            <i class="input-icon fas fa-headphones"></i>
+            <p class="input-title">Input Tasmi'</p>
+            <p class="input-desc">Rekam hafalan Tasmi' siswa</p>
+            <button class="input-btn">Input Sekarang</button>
+        </div>
+        <div class="input-box">
+            <i class="input-icon fas fa-pen-nib"></i>
+            <p class="input-title">Input Nilai KBM</p>
+            <p class="input-desc">Input nilai ulangan harian siswa</p>
+            <button class="input-btn">Input Sekarang</button>
+        </div>
+        <!-- Third row placeholder (shifted up) -->
+        <div class="input-box" style="visibility: hidden;"></div>
     </div>
 
-    <!-- Simulasi Windows Taskbar -->
-    <div class="windows-taskbar">
-        <div class="windows-taskbar-left">
-            <i class="fab fa-windows" style="color: #0d999e;"></i>
-            <i class="fa fa-search"></i>
-            <i class="fa fa-folder"></i>
-            <i class="fab fa-chrome" style="color: #0d999e;"></i>
-            <i class="fab fa-microsoft-teams"></i>
+    <!-- Simulated Windows 11 Taskbar -->
+    <div class="taskbar-sim">
+        <div class="taskbar-start">
+            <i class="fab fa-windows" style="font-size: 18px;"></i>
+            <span><i class="fas fa-search"></i></span>
         </div>
-        <div class="windows-taskbar-right">
-            <i class="fa fa-language"></i>
-            <i class="fa fa-battery-three-quarters"></i>
-            <i class="fa fa-wifi"></i>
+        <div class="taskbar-icons">
+            <i class="fas fa-folder"></i>
+            <i class="fab fa-chrome"></i>
+            <i class="fas fa-message"></i>
+            <i class="fas fa-file-code"></i>
+        </div>
+        <div class="taskbar-tray">
+            <span>^</span>
+            <span><i class="fas fa-battery-half"></i></span>
+            <span><i class="fas fa-wifi"></i></span>
+            <span><i class="fas fa-volume-up"></i></span>
             <span>ENG</span>
             <span>06:41</span>
             <span>31/07/2026</span>
+            <span><i class="fas fa-comment-alt"></i></span>
         </div>
     </div>
 
 </body>
 </html>
+```http://googleusercontent.com/image_generation_content/427
