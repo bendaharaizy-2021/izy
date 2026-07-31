@@ -1,289 +1,45 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard IZY - Elegan & Tidy</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #f4f7f6;
-            color: #333;
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        /* Sidebar Styling */
-        .sidebar {
-            width: 250px;
-            background-color: #006666;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding-top: 20px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-            margin-bottom: 30px;
-        }
-
-        .logo-icon {
-            font-size: 28px;
-            margin-right: 12px;
-            vertical-align: middle;
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .menu-title {
-            padding-left: 20px;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #ccc;
-            margin-bottom: 10px;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            cursor: pointer;
-            transition: background 0.3s;
-            color: #f1f1f1;
-        }
-
-        .menu-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .menu-item.active {
-            background-color: #009999;
-            color: white;
-            font-weight: bold;
-        }
-
-        .menu-item-icon {
-            font-size: 18px;
-            margin-right: 15px;
-            width: 20px;
-            text-align: center;
-        }
-
-        /* Main Content Styling */
-        .main-content {
-            margin-left: 250px;
-            padding: 20px;
-            height: calc(100vh - 40px); /* Fill space below address bar */
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: min-content;
-            gap: 20px;
-            overflow-y: auto;
-        }
-
-        /* Input Box Styling */
-        .input-box {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 25px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-        }
-
-        .input-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        .input-icon {
-            font-size: 40px;
-            color: #009999;
-            margin-bottom: 20px;
-        }
-
-        .input-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin: 0 0 10px 0;
-        }
-
-        .input-desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .input-btn {
-            background-color: #009999;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 10px 25px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .input-btn:hover {
-            background-color: #007777;
-        }
-
-        /* Windows 11 Taskbar simulation for realism */
-        .taskbar-sim {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 48px;
-            background-color: #f1f3f4;
-            border-top: 1px solid #d3d3d3;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            box-sizing: border-box;
-            font-size: 13px;
-            color: #5f6368;
-            z-index: 1000;
-        }
-
-        .taskbar-start {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .taskbar-icons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .taskbar-tray {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Gradient and Icons (requires FontAwesome for full effect) */
-        /* For this demo, using text representations */
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-    </style>
+    <title>Bendaharaizy IZY</title>
+    <meta name="metadaat" content="datamap-8. utf-8"> <!-- Bagian teks sedikit kabur di gambar -->
+    <link rel="css-arf.css" href="/izy//doshloard-s/css/hoots/paraneizy.css"> <!-- Tautan CSS yang terlihat kabur -->
+    <link rel="css-2" href="/izy//index/macheaports.css"> <!-- Tautan CSS kedua, teks sedikit kabur -->
 </head>
 <body>
-
-    <!-- Sidebar with a single, elegant IZY logo -->
-    <div class="sidebar">
-        <div class="logo-container">
-            <span class="logo-icon"><i class="fas fa-user-graduate"></i></span>
-            <p class="logo-text">IZY</p>
-        </div>
-
-        <p class="menu-title">MEMBER</p>
-        <div class="menu-item active">
-            <span class="menu-item-icon"><i class="fas fa-home"></i></span> Dashboard
-        </div>
-        <div class="menu-item">
-            <span class="menu-item-icon"><i class="fas fa-database"></i></span> Input Data
-        </div>
-        <div class="menu-item">
-            <span class="menu-item-icon"><i class="fas fa-envelope"></i></span> Laporan
-        </div>
-        <div class="menu-item">
-            <span class="menu-item-icon"><i class="fas fa-file-export"></i></span> Export
-        </div>
-
-        <p class="menu-title">PONPES IBNUL JAUZY</p>
-        <div class="menu-item">
-            <span class="menu-item-icon">-</span> -
-        </div>
-        <p class="menu-title">PONPES IRNUL JAUZY</p>
-        <div class="menu-item">
-            <span class="menu-item-icon">-</span> -
-        </div>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <a class="sidebar-logo">IZY</a>
+            <ul>
+                <!-- Sidebar Menu Start -->
+                <li class="sidebar-menu-item">
+                    <a href="#dashboard">Dashboard</a>
+                    <a href="#input-data">Input Data</a>
+                    <a href="#laporan">Laporan</a>
+                    <a href="#export">Export</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <header class="Profile">Profile</header> <!-- Judul profil, teks sedikit kabur -->
+            <image ime="avatar-img.svg" sref="http://sens.bendaharaizy.file/profile.jpg"> <!-- Atribut gambar sedikit kabur -->
+            
+            <div class="card-container">
+                <!-- Report Cards Start -->
+                <div class="card">
+                    <div class="card-icon" class="path/sowits/file/s1/Laporan Kehadiran Tahfizh"></div> <!-- Path kabur -->
+                    <div class="card-title">Laporan Kehadiran Santri</div>
+                    <p class="card-desc">Laporan Kehadiran Tahfizh</p> <!-- Sub-deskripsi, teks sedikit kabur -->
+                    <button class="card-button">Lihat Laporan Tahfizh</button> <!-- Teks tombol kabur -->
+                </div>
+                <div class="card">
+                    <div class="card-icon" class="path/sowits/Daftar/Nilai KBM"></div> <!-- Path kabur -->
+                    <div class="card-title">Daftar Nilai KBM Semester</div>
+                    <p class="card-desc">Daftar Nilai KBM Semester Tahfizh</p> <!-- Sub-deskripsi kabur -->
+                    <button class="card-button">Daftar Nilai Semester</button> <!-- Teks tombol kabur -->
+                </div>
+            </div>
+        </main>
     </div>
-
-    <!-- Main Content with input boxes moved up and filling space -->
-    <div class="main-content">
-        <!-- New top row (previously centered) -->
-        <div class="input-box">
-            <i class="input-icon fas fa-clock"></i>
-            <p class="input-title">Input Absensi KST</p>
-            <p class="input-desc">Rekam data absensi harian KST</p>
-            <button class="input-btn">Input Sekarang</button>
-        </div>
-        <div class="input-box">
-            <i class="input-icon fas fa-calendar-alt"></i>
-            <p class="input-title">Input Absensi KBM</p>
-            <p class="input-desc">Input absensi harian kegiatan belajar mengajar</p>
-            <button class="input-btn">Input Sekarang</button>
-        </div>
-        <div class="input-box">
-            <i class="input-icon fas fa-book-open"></i>
-            <p class="input-title">Input Setoran Tahfizh Harian</p>
-            <p class="input-desc">Rekam setoran hafalan harian santri</p>
-            <button class="input-btn">Input Sekarang</button>
-        </div>
-
-        <!-- Second row (shifted up) -->
-        <div class="input-box">
-            <i class="input-icon fas fa-headphones"></i>
-            <p class="input-title">Input Tasmi'</p>
-            <p class="input-desc">Rekam hafalan Tasmi' siswa</p>
-            <button class="input-btn">Input Sekarang</button>
-        </div>
-        <div class="input-box">
-            <i class="input-icon fas fa-pen-nib"></i>
-            <p class="input-title">Input Nilai KBM</p>
-            <p class="input-desc">Input nilai ulangan harian siswa</p>
-            <button class="input-btn">Input Sekarang</button>
-        </div>
-        <!-- Third row placeholder (shifted up) -->
-        <div class="input-box" style="visibility: hidden;"></div>
-    </div>
-
-    <!-- Simulated Windows 11 Taskbar -->
-    <div class="taskbar-sim">
-        <div class="taskbar-start">
-            <i class="fab fa-windows" style="font-size: 18px;"></i>
-            <span><i class="fas fa-search"></i></span>
-        </div>
-        <div class="taskbar-icons">
-            <i class="fas fa-folder"></i>
-            <i class="fab fa-chrome"></i>
-            <i class="fas fa-message"></i>
-            <i class="fas fa-file-code"></i>
-        </div>
-        <div class="taskbar-tray">
-            <span>^</span>
-            <span><i class="fas fa-battery-half"></i></span>
-            <span><i class="fas fa-wifi"></i></span>
-            <span><i class="fas fa-volume-up"></i></span>
-            <span>ENG</span>
-            <span>06:41</span>
-            <span>31/07/2026</span>
-            <span><i class="fas fa-comment-alt"></i></span>
-        </div>
-    </div>
-
 </body>
 </html>
-```http://googleusercontent.com/image_generation_content/427
